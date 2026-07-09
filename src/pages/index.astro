@@ -1,0 +1,622 @@
+---
+import '../styles/global.css'
+import HeroSection from '../components/HeroSection'
+import ScrollProgress from '../components/ScrollProgress'
+import CursorGlow from '../components/CursorGlow'
+import MarqueeTrust from '../components/MarqueeTrust'
+import TiltCard from '../components/TiltCard'
+import ScrollReveal from '../components/ScrollReveal'
+import { StaggerGrid, StaggerItem } from '../components/StaggerGrid'
+import AfipMiniDemo from '../components/AfipMiniDemo'
+import ShinyButton from '../components/ShinyButton'
+import SecretarIAShowcase from '../components/SecretarIAShowcase'
+import SecurityBadges from '../components/SecurityBadges'
+
+const WA = '5491131762296'
+const WA_MSG = encodeURIComponent('Hola! Me interesa GoBecker para mi negocio. Quiero más información.')
+const EMAIL = 'facundobecker000@gmail.com'
+---
+
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="GoBecker - Tu gestion comercial con IA. Facturacion AFIP automatica, stock, CRM, cobranzas y reportes para PyMEs argentinas. SecretarIA te avisa por WhatsApp. Probalo gratis." />
+    <meta name="theme-color" content="#050510" />
+    <meta property="og:title" content="GoBecker - Tu secretaria de negocios con inteligencia artificial" />
+    <meta property="og:description" content="Tu gestion comercial con IA. Facturacion AFIP, stock, CRM y cobranzas para PyMEs argentinas." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>GoBecker - Gestion comercial con IA | Facturacion AFIP para PyMEs</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&family=DM+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+
+    <!-- Global effects -->
+    <ScrollProgress client:load />
+    <CursorGlow client:load />
+
+    <!-- ===== NAV ===== -->
+    <nav class="nav-blur fixed top-0 left-0 right-0 z-50 px-6 py-4" id="nav">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <a href="#" class="text-2xl font-bold tracking-tight"><span class="text-[#D97706]">Go</span><span class="text-white">Becker</span></a>
+        <div class="hidden md:flex items-center gap-8">
+          <a href="#demo" class="nav-link">Demo</a>
+          <a href="#features" class="nav-link">Funciones</a>
+          <a href="#pricing" class="nav-link">Precios</a>
+          <a href="#faq" class="nav-link">Preguntas</a>
+        </div>
+        <div class="flex items-center gap-4">
+          <a href="https://app.gobecker.com.ar/register" class="bg-[#D97706] hover:bg-[#B45309] text-white px-5 py-2.5 rounded-lg text-sm font-semibold transition-all hidden sm:inline-flex items-center gap-2">
+            Probalo gratis
+          </a>
+          <button id="mobile-toggle" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Menu">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-border">
+        <div class="flex flex-col gap-4 pt-4">
+          <a href="#demo" class="text-[#64748B] text-sm mobile-link">Demo</a>
+          <a href="#features" class="text-[#64748B] text-sm mobile-link">Funciones</a>
+          <a href="#pricing" class="text-[#64748B] text-sm mobile-link">Precios</a>
+          <a href="#faq" class="text-[#64748B] text-sm mobile-link">Preguntas</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== STICKY CTA MOBILE ===== -->
+    <div id="sticky-cta" class="fixed bottom-0 left-0 right-0 z-40 p-3 sm:hidden sticky-cta-bar hidden">
+      <a href={`https://wa.me/${WA}?text=${WA_MSG}`} target="_blank" rel="noopener" class="flex items-center justify-center gap-2 bg-accent text-[#0B1D3A] w-full py-3.5 rounded-xl font-bold text-sm shadow-lg shadow-accent/30">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Empezar mi prueba gratis
+      </a>
+    </div>
+
+    <!-- ===== HERO (React + framer-motion) ===== -->
+    <HeroSection client:load />
+
+    <!-- ===== MARQUEE TRUST BAR ===== -->
+    <MarqueeTrust client:visible />
+
+    <!-- ===== SECRETARIA IA SHOWCASE ===== -->
+    <SecretarIAShowcase client:visible />
+
+
+    <!-- ===== PAIN POINTS ===== -->
+    <section class="py-28 px-6 relative overflow-hidden section-alt">
+      <div class="max-w-6xl mx-auto">
+        <ScrollReveal client:visible>
+          <h2 class="text-3xl md:text-4xl font-bold mb-4 text-center text-[#1E293B]">
+            Sabemos como es tu dia a dia<br/>porque <span class="text-[#D97706]">lo vivimos con vos</span>
+          </h2>
+          <p class="text-[#64748B] text-base text-center max-w-2xl mx-auto mb-14">
+            Hablamos con decenas de comerciantes, distribuidores e imprenteros. Estos son los problemas que nos contaron:
+          </p>
+        </ScrollReveal>
+
+        <StaggerGrid client:visible className="grid md:grid-cols-3 gap-6" staggerDelay={0.15}>
+          <StaggerItem>
+            <div class="glass-card rounded-2xl p-7">
+              <div class="icon-glow mb-5 border-warning/30">
+                <svg class="w-6 h-6 text-warning" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              </div>
+              <h3 class="text-lg font-semibold mb-2 text-[#1E293B]">12 horas por mes en AFIP</h3>
+              <p class="text-[#64748B] text-sm leading-relaxed">15 minutos por factura. 50 facturas por mes. <strong class="text-[#1E293B]">12.5 horas</strong> que podrias estar vendiendo.</p>
+            </div>
+          </StaggerItem>
+          <StaggerItem>
+            <div class="glass-card rounded-2xl p-7">
+              <div class="icon-glow mb-5 border-warning/30">
+                <svg class="w-6 h-6 text-warning" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.375 19.5h17.25m-17.25 0a1.125 1.125 0 01-1.125-1.125M3.375 19.5h7.5c.621 0 1.125-.504 1.125-1.125m-9.75 0V5.625m0 12.75v-1.5c0-.621.504-1.125 1.125-1.125m18.375 2.625V5.625m0 12.75c0 .621-.504 1.125-1.125 1.125m1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125m0 3.75h-7.5A1.125 1.125 0 0112 18.375" /></svg>
+              </div>
+              <h3 class="text-lg font-semibold mb-2 text-[#1E293B]">Tu negocio entero en planillas</h3>
+              <p class="text-[#64748B] text-sm leading-relaxed">Stock en una hoja, clientes en otra, cheques en un cuaderno. <strong class="text-[#1E293B]">Todo se rompe</strong> cuando alguien toca una formula.</p>
+            </div>
+          </StaggerItem>
+          <StaggerItem>
+            <div class="glass-card rounded-2xl p-7">
+              <div class="icon-glow mb-5 border-warning/30">
+                <svg class="w-6 h-6 text-warning" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" /></svg>
+              </div>
+              <h3 class="text-lg font-semibold mb-2 text-warning">Te enteras tarde de todo</h3>
+              <p class="text-[#64748B] text-sm leading-relaxed">Que un cliente debe plata, que se quedo sin stock, que un cheque vencio. <strong class="text-[#1E293B]">Cada manana es una sorpresa.</strong></p>
+            </div>
+          </StaggerItem>
+        </StaggerGrid>
+      </div>
+    </section>
+
+
+    <div id="demo"></div>
+
+    <!-- ===== FEATURES BENTO GRID ===== -->
+    <section id="features" class="py-28 px-6 relative section-alt">
+      <div class="max-w-6xl mx-auto">
+        <ScrollReveal client:visible>
+          <div class="text-center mb-14">
+            <span class="text-accent text-sm font-semibold uppercase tracking-widest">Funciones</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-3">Todo lo que necesitas. <span class="text-[#D97706]">Nada que no.</span></h2>
+          </div>
+        </ScrollReveal>
+
+        <!-- Bento Grid: asymmetric layout -->
+        <div class="bento-grid">
+          <!-- AFIP: large card spanning 2 cols -->
+          <TiltCard client:visible className="bento-hero p-8 md:p-10" delay={0}>
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <div class="icon-glow mb-5"><svg class="w-7 h-7 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15a2.251 2.251 0 012.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z" /></svg></div>
+                <h3 class="text-2xl font-bold mb-3">Facturacion AFIP automatica</h3>
+                <p class="text-[#64748B] leading-relaxed mb-5">Conexion directa con AFIP/ARCA via WSFEv1. Facturas A, B y C, validacion CUIT, CAE automatico. <strong class="text-[#1E293B]">En segundos.</strong></p>
+                <div class="flex flex-wrap gap-2">
+                  <span class="tag">Factura A/B/C</span><span class="tag">CAE automatico</span><span class="tag">CUIT</span><span class="tag">NC/ND</span>
+                </div>
+              </div>
+              <div class="glass rounded-2xl p-5 space-y-3">
+                <div class="flow-step"><div class="flow-num">1</div><div class="flex-1"><div class="text-sm font-medium">Elegis cliente y productos</div><div class="text-xs text-[#94A3B8]">CUIT validado automaticamente</div></div><span class="text-success text-xs">2s</span></div>
+                <div class="flow-line"></div>
+                <div class="flow-step"><div class="flow-num">2</div><div class="flex-1"><div class="text-sm font-medium">IVA y totales auto</div><div class="text-xs text-[#94A3B8]">Tipo A, B o C segun corresponda</div></div><span class="text-success text-xs">auto</span></div>
+                <div class="flow-line"></div>
+                <div class="flow-step"><div class="flow-num">3</div><div class="flex-1"><div class="text-sm font-medium">Enviado a AFIP</div><div class="text-xs text-[#94A3B8]">WSFEv1 directo</div></div><span class="text-success text-xs">3s</span></div>
+                <div class="flow-line"></div>
+                <div class="flow-step"><div class="flow-num-ok"><svg class="w-4 h-4 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg></div><div class="flex-1"><div class="text-sm font-medium text-success">CAE obtenido</div></div><span class="text-success text-xs font-bold">OK</span></div>
+              </div>
+            </div>
+          </TiltCard>
+
+          <!-- Stock -->
+          <TiltCard client:visible className="bento-sm p-7" delay={0.1}>
+            <div class="icon-glow mb-4"><svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" /></svg></div>
+            <h3 class="text-lg font-semibold mb-2">Stock inteligente</h3>
+            <p class="text-[#64748B] text-sm leading-relaxed">Inventario en tiempo real. Alertas de bajo stock. Descuento automatico al facturar.</p>
+          </TiltCard>
+
+          <!-- CRM Integrado (DIFERENCIADOR - nadie mas lo tiene) -->
+          <TiltCard client:visible className="bento-wide p-7" delay={0.2} glowColor="rgba(6,182,212,0.15)">
+            <div class="flex items-start gap-2 mb-3">
+              <div class="icon-glow"><svg class="w-6 h-6 text-[#1E40AF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" /></svg></div>
+              <span class="mt-1 text-xs text-[#1E40AF] bg-accent-secondary/10 border border-accent-secondary/20 px-2 py-0.5 rounded-full font-medium">Unico en Argentina</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2">CRM + Gestion de clientes integrado</h3>
+            <p class="text-[#64748B] text-sm leading-relaxed mb-3">
+              No es una libreta de contactos. Es un CRM real: ficha completa por cliente con historial de compras,
+              facturas, saldos, pipeline de ventas y cobranzas automaticas.
+              <strong class="text-[#1E293B]">Ningun otro gestor argentino lo tiene.</strong>
+            </p>
+            <div class="flex flex-wrap gap-2">
+              <span class="tag">Pipeline ventas</span><span class="tag">Historial completo</span><span class="tag">Cobranzas auto</span><span class="tag">Saldos</span>
+            </div>
+          </TiltCard>
+
+          <!-- Interactive AFIP Demo: spans 2 cols -->
+          <div class="bento-wide">
+            <AfipMiniDemo client:visible />
+          </div>
+
+          <!-- Pedidos -->
+          <TiltCard client:visible className="bento-sm p-7" delay={0.3}>
+            <div class="icon-glow mb-4"><svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 12h16.5m-16.5 3.75h16.5M3.75 19.5h16.5M5.625 4.5h12.75a1.875 1.875 0 010 3.75H5.625a1.875 1.875 0 010-3.75z" /></svg></div>
+            <h3 class="text-lg font-semibold mb-2">Pedidos</h3>
+            <p class="text-[#64748B] text-sm leading-relaxed">Cotizacion a factura en 1 click. Timer produccion, estados, seguimiento.</p>
+          </TiltCard>
+
+          <!-- Reportes -->
+          <TiltCard client:visible className="bento-sm p-7" delay={0.15}>
+            <div class="icon-glow mb-4"><svg class="w-6 h-6 text-[#1E40AF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" /></svg></div>
+            <h3 class="text-lg font-semibold mb-2">Reportes live</h3>
+            <p class="text-[#64748B] text-sm leading-relaxed">Ventas, gastos, margenes, productos top. Dashboard en tiempo real.</p>
+          </TiltCard>
+
+          <!-- Portal -->
+          <TiltCard client:visible className="bento-sm p-7" delay={0.25}>
+            <div class="icon-glow mb-4"><svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3" /></svg></div>
+            <h3 class="text-lg font-semibold mb-2">Portal clientes</h3>
+            <p class="text-[#64748B] text-sm leading-relaxed">Tus clientes ven sus facturas, pedidos y saldos. Profesionalismo total.</p>
+          </TiltCard>
+
+          <!-- IA Premium -->
+          <TiltCard client:visible className="bento-sm p-7 relative" delay={0.35} glowColor="rgba(6,182,212,0.15)">
+            <span class="absolute top-3 right-3 text-xs text-[#1E40AF] border border-accent-secondary/30 bg-accent-secondary/10 px-2 py-0.5 rounded-full">Premium</span>
+            <div class="icon-glow mb-4"><svg class="w-6 h-6 text-[#1E40AF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z" /></svg></div>
+            <h3 class="text-lg font-semibold mb-2">IA que vende</h3>
+            <p class="text-[#64748B] text-sm leading-relaxed">Patrones de compra, sugerencias, prediccion de cuando vuelve un cliente.</p>
+          </TiltCard>
+
+          <!-- Compras y OC -->
+          <TiltCard client:visible className="bento-sm p-7" delay={0.4}>
+            <div class="icon-glow mb-4"><svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg></div>
+            <h3 class="text-lg font-semibold mb-2">Compras y proveedores</h3>
+            <p class="text-[#64748B] text-sm leading-relaxed">Ordenes de compra, recepcion de mercaderia, cuenta corriente con proveedores.</p>
+          </TiltCard>
+
+          <!-- Cheques -->
+          <TiltCard client:visible className="bento-sm p-7" delay={0.45}>
+            <div class="icon-glow mb-4"><svg class="w-6 h-6 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 8.25h19.5M2.25 9h19.5m-16.5 5.25h6m-6 2.25h3m-3.75 3h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5z" /></svg></div>
+            <h3 class="text-lg font-semibold mb-2">Gestion de cheques</h3>
+            <p class="text-[#64748B] text-sm leading-relaxed">Cheques propios y de terceros, vencimientos, depositos, 23 estados posibles.</p>
+          </TiltCard>
+
+          <!-- PWA Mobile -->
+          <TiltCard client:visible className="bento-sm p-7" delay={0.5}>
+            <div class="icon-glow mb-4"><svg class="w-6 h-6 text-[#1E40AF]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg></div>
+            <h3 class="text-lg font-semibold mb-2">App en tu celular</h3>
+            <p class="text-[#64748B] text-sm leading-relaxed">Instala GoBecker desde el navegador. App completa en tu bolsillo, Android y iPhone.</p>
+          </TiltCard>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ===== COMPARATIVA VS COMPETENCIA ===== -->
+    <section class="py-28 px-6">
+      <div class="max-w-5xl mx-auto">
+        <ScrollReveal client:visible>
+          <div class="text-center mb-14">
+            <span class="text-accent text-sm font-semibold uppercase tracking-widest">Comparativa</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-3">GoBecker vs <span class="text-[#D97706]">la competencia</span></h2>
+            <p class="text-[#64748B] text-base max-w-2xl mx-auto mt-4">Comparacion real con los principales gestores del mercado argentino.</p>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal client:visible variant="rotate3d" delay={0.15}>
+          <div class="glass-card rounded-2xl overflow-x-auto">
+            <table class="w-full text-sm min-w-[700px]">
+              <thead>
+                <tr class="border-b border-border">
+                  <th class="text-left p-4 text-[#94A3B8] font-medium">Funcion</th>
+                  <th class="text-center p-4 text-[#94A3B8] font-medium">Xubio</th>
+                  <th class="text-center p-4 text-[#94A3B8] font-medium">Colppy</th>
+                  <th class="text-center p-4 text-[#94A3B8] font-medium">Alegra</th>
+                  <th class="text-center p-4 text-[#94A3B8] font-medium">Facturante</th>
+                  <th class="text-center p-4 font-bold gradient-text">GoBecker</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="border-b border-border/50">
+                  <td class="p-4 text-[#64748B]">Facturacion AFIP</td>
+                  <td class="p-4 text-center text-success">Si</td>
+                  <td class="p-4 text-center text-success">Si</td>
+                  <td class="p-4 text-center text-success">Si</td>
+                  <td class="p-4 text-center text-success">Si</td>
+                  <td class="p-4 text-center text-success font-bold">Si</td>
+                </tr>
+                <tr class="border-b border-border/50">
+                  <td class="p-4 text-[#64748B]">Stock y inventario</td>
+                  <td class="p-4 text-center text-success">Si</td>
+                  <td class="p-4 text-center text-success">Si</td>
+                  <td class="p-4 text-center text-success">Basico</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-success font-bold">Si + alertas</td>
+                </tr>
+                <tr class="border-b border-border/50">
+                  <td class="p-4 text-[#64748B] font-medium">CRM con pipeline de ventas</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#1E40AF] font-bold">Si</td>
+                </tr>
+                <tr class="border-b border-border/50">
+                  <td class="p-4 text-[#64748B] font-medium">Cobranzas automaticas</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-warning">Basico</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#1E40AF] font-bold">Si</td>
+                </tr>
+                <tr class="border-b border-border/50">
+                  <td class="p-4 text-[#64748B]">Portal de clientes</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#1E40AF] font-bold">Si</td>
+                </tr>
+                <tr class="border-b border-border/50">
+                  <td class="p-4 text-[#64748B] font-medium">IA predictiva</td>
+                  <td class="p-4 text-center text-warning">Comprobantes</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#1E40AF] font-bold">Ventas + productos</td>
+                </tr>
+                <tr class="border-b border-border/50">
+                  <td class="p-4 text-[#64748B]">Cotizaciones a factura</td>
+                  <td class="p-4 text-center text-success">Si</td>
+                  <td class="p-4 text-center text-success">Si</td>
+                  <td class="p-4 text-center text-success">Si</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-success font-bold">1 click</td>
+                </tr>
+                <tr class="border-b border-border/50">
+                  <td class="p-4 text-[#64748B]">Plan gratis permanente</td>
+                  <td class="p-4 text-center text-success">Si (10 cbtes)</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No (trial)</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No (trial)</td>
+                  <td class="p-4 text-center text-success font-bold">Si (10 cbtes)</td>
+                </tr>
+                <tr class="border-b border-border/50">
+                  <td class="p-4 text-[#64748B] font-medium">Asistente IA por WhatsApp</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#1E40AF] font-bold">SecretarIA</td>
+                </tr>
+                <tr class="border-b border-border/50">
+                  <td class="p-4 text-[#64748B] font-medium">Resumen matutino automatico</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#1E40AF] font-bold">Si</td>
+                </tr>
+                <tr class="border-b border-border/50">
+                  <td class="p-4 text-[#64748B]">Business Intelligence</td>
+                  <td class="p-4 text-center text-warning">Basico</td>
+                  <td class="p-4 text-center text-warning">Basico</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#1E40AF] font-bold">6 dashboards</td>
+                </tr>
+                <tr class="border-b border-border/50">
+                  <td class="p-4 text-[#64748B]">Seguridad (2FA, encriptacion)</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#94A3B8]">No</td>
+                  <td class="p-4 text-center text-[#1E40AF] font-bold">AES-256 + 2FA</td>
+                </tr>
+                <tr>
+                  <td class="p-4 text-[#64748B]">Precio desde</td>
+                  <td class="p-4 text-center text-[#64748B]">$20.200/mes</td>
+                  <td class="p-4 text-center text-[#64748B]">$106.500/mes</td>
+                  <td class="p-4 text-center text-[#64748B]">$19.999/mes</td>
+                  <td class="p-4 text-center text-[#64748B]">$12.462/mes</td>
+                  <td class="p-4 text-center font-bold gradient-text">$28.999/mes</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-[#94A3B8] text-xs text-center mt-4">Precios de referencia al momento de publicacion. Los precios de competidores pueden variar.</p>
+        </ScrollReveal>
+      </div>
+    </section>
+
+
+    <!-- ===== PRICING ===== -->
+    <section id="pricing" class="py-28 px-6 relative section-alt">
+      <div class="max-w-5xl mx-auto relative z-10">
+        <ScrollReveal client:visible>
+          <div class="text-center mb-6">
+            <span class="text-accent text-sm font-semibold uppercase tracking-widest">Precios</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-3">Simple. <span class="text-[#D97706]">Transparente.</span></h2>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal client:visible delay={0.1}>
+          <div class="flex justify-center mb-10">
+            <div class="inline-flex items-center gap-3 glass px-5 py-2.5 rounded-full">
+              <svg class="w-5 h-5 text-success" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+              <span class="text-sm text-[#64748B]">Plan gratis para siempre · 14 dias de prueba · precio fijo 6 meses · 32% off anual</span>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <!-- Security badges -->
+        <SecurityBadges client:visible />
+
+        <!-- Precio fijo badge -->
+        <ScrollReveal client:visible delay={0.15}>
+          <div class="flex justify-center mb-8">
+            <div class="inline-flex items-center gap-2 glass px-4 py-2 rounded-full">
+              <svg class="w-4 h-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg>
+              <span class="text-sm text-[#64748B]">Precio fijo garantizado por 6 meses. Sin sorpresas.</span>
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <StaggerGrid client:visible className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto" staggerDelay={0.1}>
+          <!-- Gratis -->
+          <StaggerItem>
+            <div class="glass-card rounded-2xl p-7 h-full flex flex-col">
+              <h3 class="text-lg font-semibold mb-1">Gratis</h3>
+              <p class="text-[#94A3B8] text-sm mb-5">Para probar sin compromiso</p>
+              <div class="mb-5"><span class="text-4xl font-black">$0</span><span class="text-[#94A3B8] text-sm"> /siempre</span></div>
+              <ul class="space-y-2.5 mb-7 text-sm text-[#64748B] flex-1">
+                <li class="flex items-center gap-2"><span class="text-success">&#10003;</span> 10 facturas/mes</li>
+                <li class="flex items-center gap-2"><span class="text-success">&#10003;</span> Facturacion AFIP A/B/C</li>
+                <li class="flex items-center gap-2"><span class="text-success">&#10003;</span> 3 clientes</li>
+                <li class="flex items-center gap-2"><span class="text-success">&#10003;</span> Stock basico</li>
+                <li class="flex items-center gap-2"><span class="text-success">&#10003;</span> Soporte WhatsApp</li>
+              </ul>
+              <a href="https://app.gobecker.com.ar/register?plan=free" class="block w-full text-center glass text-[#1E293B] px-5 py-3 rounded-xl font-semibold hover:border-border-hover transition-all mt-auto">Empezar gratis</a>
+            </div>
+          </StaggerItem>
+
+          <!-- Estandar (Popular) -->
+          <StaggerItem>
+            <div class="glass-card rounded-2xl p-7 ring-1 ring-accent/30 h-full flex flex-col">
+              <div class="flex items-center justify-between mb-1">
+                <h3 class="text-lg font-semibold">Estandar</h3>
+                <span class="text-xs text-success bg-success/10 border border-success/20 px-2 py-0.5 rounded-full font-medium">Popular</span>
+              </div>
+              <p class="text-[#94A3B8] text-sm mb-5">Para negocios que facturan en serio</p>
+              <div class="mb-1"><span class="text-4xl font-black gradient-text">$28.999</span><span class="text-[#94A3B8] text-sm"> ARS/mes</span></div>
+              <p class="text-xs text-[#94A3B8] mb-5">Anual: $236.630/año (ahorra 32%)</p>
+              <ul class="space-y-2.5 mb-7 text-sm text-[#64748B] flex-1">
+                <li class="flex items-center gap-2"><span class="text-success">&#10003;</span> Facturas ilimitadas</li>
+                <li class="flex items-center gap-2"><span class="text-success">&#10003;</span> AFIP completa + NC/ND</li>
+                <li class="flex items-center gap-2"><span class="text-success">&#10003;</span> Stock completo + alertas</li>
+                <li class="flex items-center gap-2"><span class="text-success">&#10003;</span> Clientes ilimitados</li>
+                <li class="flex items-center gap-2"><span class="text-success">&#10003;</span> CRM + pipeline ventas</li>
+                <li class="flex items-center gap-2"><span class="text-success">&#10003;</span> Portal clientes</li>
+                <li class="flex items-center gap-2"><span class="text-success">&#10003;</span> Reportes y dashboards</li>
+                <li class="flex items-center gap-2"><span class="text-success">&#10003;</span> Cobranzas automaticas</li>
+                <li class="flex items-center gap-2"><span class="text-success">&#10003;</span> Soporte prioritario</li>
+              </ul>
+              <ShinyButton client:visible href="https://app.gobecker.com.ar/register?plan=estandar" className="w-full text-sm mt-auto">Elegir Estandar</ShinyButton>
+            </div>
+          </StaggerItem>
+
+          <!-- Premium -->
+          <StaggerItem>
+            <div class="glass-card rounded-2xl p-7 h-full flex flex-col">
+              <div class="flex items-center justify-between mb-1">
+                <h3 class="text-lg font-semibold">Premium</h3>
+                <span class="text-xs text-[#1E40AF] bg-accent-secondary/10 border border-accent-secondary/20 px-2 py-0.5 rounded-full font-medium">SecretarIA</span>
+              </div>
+              <p class="text-[#94A3B8] text-sm mb-5">IA + WhatsApp + todo ilimitado</p>
+              <div class="mb-1"><span class="text-4xl font-black">$73.999</span><span class="text-[#94A3B8] text-sm"> ARS/mes</span></div>
+              <p class="text-xs text-[#94A3B8] mb-5">Anual: $603.352/año (ahorra 32%)</p>
+              <ul class="space-y-2.5 mb-7 text-sm text-[#64748B] flex-1">
+                <li class="flex items-center gap-2"><span class="text-success">&#10003;</span> Todo del Estandar</li>
+                <li class="flex items-center gap-2"><span class="text-[#1E40AF]">&#9733;</span> SecretarIA por WhatsApp</li>
+                <li class="flex items-center gap-2"><span class="text-[#1E40AF]">&#9733;</span> Resumen matutino automatico</li>
+                <li class="flex items-center gap-2"><span class="text-[#1E40AF]">&#9733;</span> Consultas por voz</li>
+                <li class="flex items-center gap-2"><span class="text-[#1E40AF]">&#9733;</span> IA: prediccion de ventas</li>
+                <li class="flex items-center gap-2"><span class="text-[#1E40AF]">&#9733;</span> Business Intelligence (6 dashboards)</li>
+                <li class="flex items-center gap-2"><span class="text-[#1E40AF]">&#9733;</span> Multi-deposito</li>
+                <li class="flex items-center gap-2"><span class="text-[#1E40AF]">&#9733;</span> Acceso API</li>
+              </ul>
+              <a href="https://app.gobecker.com.ar/register?plan=premium" class="block w-full text-center glass text-[#1E293B] px-5 py-3 rounded-xl font-semibold hover:border-border-hover transition-all mt-auto">Elegir Premium</a>
+            </div>
+          </StaggerItem>
+        </StaggerGrid>
+      </div>
+    </section>
+
+
+    <!-- ===== FAQ ===== -->
+    <section id="faq" class="py-28 px-6">
+      <div class="max-w-3xl mx-auto">
+        <ScrollReveal client:visible>
+          <div class="text-center mb-14">
+            <span class="text-accent text-sm font-semibold uppercase tracking-widest">Preguntas</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-3">Preguntas <span class="text-[#D97706]">frecuentes</span></h2>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal client:visible delay={0.15}>
+          <div class="space-y-3 faq-grid">
+            <details class="glass-card rounded-xl group"><summary class="p-5 cursor-pointer text-[#1E293B] font-medium flex items-center justify-between hover:text-[#D97706] transition-colors text-sm">Necesito saber programar?<span class="text-accent transition-transform group-open:rotate-45 text-lg">+</span></summary><div class="px-5 pb-5 text-[#64748B] text-sm leading-relaxed">No. Es tan simple como usar WhatsApp.</div></details>
+            <details class="glass-card rounded-xl group"><summary class="p-5 cursor-pointer text-[#1E293B] font-medium flex items-center justify-between hover:text-[#D97706] transition-colors text-sm">Como funciona con AFIP?<span class="text-accent transition-transform group-open:rotate-45 text-lg">+</span></summary><div class="px-5 pb-5 text-[#64748B] text-sm leading-relaxed">Conexion directa WSFEv1. Solo necesitas certificado digital y punto de venta. Te guiamos por WhatsApp.</div></details>
+            <details class="glass-card rounded-xl group"><summary class="p-5 cursor-pointer text-[#1E293B] font-medium flex items-center justify-between hover:text-[#D97706] transition-colors text-sm">Que pasa si no me gusta?<span class="text-accent transition-transform group-open:rotate-45 text-lg">+</span></summary><div class="px-5 pb-5 text-[#64748B] text-sm leading-relaxed">14 dias gratis. Si compras y no te convence, 30 dias devolucion completa. Sin preguntas.</div></details>
+            <details class="glass-card rounded-xl group"><summary class="p-5 cursor-pointer text-[#1E293B] font-medium flex items-center justify-between hover:text-[#D97706] transition-colors text-sm">Mis datos estan seguros?<span class="text-accent transition-transform group-open:rotate-45 text-lg">+</span></summary><div class="px-5 pb-5 text-[#64748B] text-sm leading-relaxed">Encriptacion AES-256 en transito y en reposo, autenticacion de doble factor (2FA), backups diarios, audit trail completo y row-level security en toda la base de datos. <a href="/privacidad" class="text-accent underline">Politica de privacidad</a>.</div></details>
+            <details class="glass-card rounded-xl group"><summary class="p-5 cursor-pointer text-[#1E293B] font-medium flex items-center justify-between hover:text-[#D97706] transition-colors text-sm">Que es SecretarIA?<span class="text-accent transition-transform group-open:rotate-45 text-lg">+</span></summary><div class="px-5 pb-5 text-[#64748B] text-sm leading-relaxed">Es tu asistente de negocios con inteligencia artificial. Funciona por WhatsApp: te manda un resumen cada manana con ventas, cobros pendientes, stock bajo y oportunidades. Podes consultarle cualquier dato de tu negocio por texto o audio, y pedirle que te envie facturas o reportes.</div></details>
+            <details class="glass-card rounded-xl group"><summary class="p-5 cursor-pointer text-[#1E293B] font-medium flex items-center justify-between hover:text-[#D97706] transition-colors text-sm">Que incluye el plan gratis?<span class="text-accent transition-transform group-open:rotate-45 text-lg">+</span></summary><div class="px-5 pb-5 text-[#64748B] text-sm leading-relaxed">Facturacion AFIP (A, B, C) con CAE automatico, hasta 10 facturas por mes, 3 clientes, stock basico y soporte por WhatsApp. Sin limite de tiempo, sin tarjeta de credito, sin trucos.</div></details>
+          </div>
+        </ScrollReveal>
+      </div>
+    </section>
+
+    <!-- ===== FINAL CTA ===== -->
+    <section class="py-28 px-6 relative overflow-hidden">
+      <div class="stripe-gradient"></div>
+      <div class="max-w-4xl mx-auto text-center relative z-10">
+        <ScrollReveal client:visible>
+          <h2 class="text-3xl md:text-5xl font-black mb-5">Tu negocio merece<br/>una <span class="gradient-text">secretaria inteligente</span></h2>
+          <p class="text-[#64748B] text-base mb-4 max-w-xl mx-auto">Plan gratis para siempre. Sin tarjeta. Estandar desde $28.999/mes.</p>
+          <p class="text-[#94A3B8] text-sm mb-8">14 dias de prueba gratis. 30 dias devolucion total.</p>
+          <ShinyButton client:visible href={`https://wa.me/${WA}?text=${WA_MSG}`} className="text-lg px-10 py-5">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Empezar mi prueba gratis
+          </ShinyButton>
+        </ScrollReveal>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="border-t border-border py-12 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-5 gap-8 mb-10">
+          <div class="col-span-2 md:col-span-1">
+            <span class="text-lg font-bold gradient-text">GoBecker</span>
+            <p class="text-[#94A3B8] text-sm mt-2">Gestion inteligente para negocios argentinos.</p>
+            <p class="text-[#94A3B8] text-xs mt-3">Buenos Aires, Argentina</p>
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold mb-3 text-[#64748B]">Producto</h4>
+            <ul class="space-y-1.5">
+              <li><a href="#features" class="text-[#94A3B8] text-sm hover:text-[#1E293B] transition-colors">Funciones</a></li>
+              <li><a href="#pricing" class="text-[#94A3B8] text-sm hover:text-[#1E293B] transition-colors">Precios</a></li>
+              <li><a href="#demo" class="text-[#94A3B8] text-sm hover:text-[#1E293B] transition-colors">Demo</a></li>
+              <li><a href="#faq" class="text-[#94A3B8] text-sm hover:text-[#1E293B] transition-colors">FAQ</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold mb-3 text-[#64748B]">Funciones</h4>
+            <ul class="space-y-1.5">
+              <li><span class="text-[#94A3B8] text-sm">Facturacion AFIP</span></li>
+              <li><span class="text-[#94A3B8] text-sm">SecretarIA</span></li>
+              <li><span class="text-[#94A3B8] text-sm">CRM + Pipeline</span></li>
+              <li><span class="text-[#94A3B8] text-sm">Stock & Inventario</span></li>
+              <li><span class="text-[#94A3B8] text-sm">Reportes & BI</span></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold mb-3 text-[#64748B]">Legal</h4>
+            <ul class="space-y-1.5">
+              <li><a href="/terminos" class="text-[#94A3B8] text-sm hover:text-[#1E293B] transition-colors">Terminos</a></li>
+              <li><a href="/privacidad" class="text-[#94A3B8] text-sm hover:text-[#1E293B] transition-colors">Privacidad</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-sm font-semibold mb-3 text-[#64748B]">Contacto</h4>
+            <ul class="space-y-1.5">
+              <li><a href={`mailto:${EMAIL}`} class="text-[#94A3B8] text-sm hover:text-[#1E293B] transition-colors">Email</a></li>
+              <li><a href={`https://wa.me/${WA}`} target="_blank" rel="noopener" class="text-[#94A3B8] text-sm hover:text-success transition-colors">WhatsApp</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="animated-line mb-6"></div>
+        <div class="flex items-center justify-center gap-3">
+          <p class="text-[#94A3B8] text-xs">&copy; 2026 GoBecker</p>
+          <span class="text-[#94A3B8] text-xs">·</span>
+          <span class="text-[#94A3B8] text-xs flex items-center gap-1">Hecho con orgullo en Argentina</span>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ===== WHATSAPP FLOAT ===== -->
+    <a href={`https://wa.me/${WA}?text=${WA_MSG}`} target="_blank" rel="noopener" class="whatsapp-float" aria-label="WhatsApp">
+      <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
+    <!-- ===== SCRIPTS (minimal - most is in React components) ===== -->
+    <script>
+      // Nav scroll
+      const nav = document.getElementById('nav');
+      window.addEventListener('scroll', () => { nav.style.borderBottomColor = window.scrollY > 50 ? 'rgba(99,102,241,0.3)' : 'rgba(99,102,241,0.15)'; }, { passive: true });
+
+      // Smooth scroll
+      document.querySelectorAll('a[href^="#"]').forEach((a) => { a.addEventListener('click', function(e) { e.preventDefault(); const t = document.querySelector(this.getAttribute('href')); if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' }); }); });
+
+      // Mobile menu
+      const mt = document.getElementById('mobile-toggle'), mm = document.getElementById('mobile-menu');
+      mt.addEventListener('click', () => { mm.classList.toggle('hidden'); mt.querySelectorAll('.hamburger-line').forEach(l => l.classList.toggle('active')); });
+      document.querySelectorAll('.mobile-link').forEach(l => { l.addEventListener('click', () => mm.classList.add('hidden')); });
+
+      // Video overlay
+      const v = document.getElementById('demo-video'), o = document.getElementById('play-overlay');
+      if (o && v) { o.addEventListener('click', () => { v.play(); o.style.opacity='0'; o.style.pointerEvents='none'; }); v.addEventListener('play', () => { o.style.opacity='0'; o.style.pointerEvents='none'; }); v.addEventListener('pause', () => { if(v.currentTime>0&&!v.ended){o.style.opacity='1';o.style.pointerEvents='auto';}}); v.addEventListener('ended', () => { o.style.opacity='1'; o.style.pointerEvents='auto'; }); }
+
+      // Sticky CTA mobile
+      const sc = document.getElementById('sticky-cta');
+      const so = new IntersectionObserver((e) => { e.forEach(en => { if(en.isIntersecting) sc.classList.add('hidden'); else sc.classList.remove('hidden'); }); }, { threshold: 0 });
+      const hs = document.querySelector('section'); if(hs) so.observe(hs);
+
+      // Shiny button mouse tracker
+      document.querySelectorAll('.shiny-btn').forEach(btn => { btn.addEventListener('mousemove', (e) => { const r = btn.getBoundingClientRect(); btn.style.setProperty('--shine-x', `${e.clientX - r.left}px`); btn.style.setProperty('--shine-y', `${e.clientY - r.top}px`); }); });
+    </script>
+
+  </body>
+</html>

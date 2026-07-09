@@ -1,0 +1,141 @@
+---
+import '../styles/global.css'
+---
+
+<html lang="es-AR">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Politica de privacidad de GoBecker" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <title>Politica de Privacidad - GoBecker</title>
+  </head>
+  <body>
+    <nav class="nav-blur fixed top-0 left-0 right-0 z-50 px-6 py-4">
+      <div class="max-w-7xl mx-auto flex items-center justify-between">
+        <a href="/" class="text-2xl font-bold gradient-text tracking-tight">GoBecker</a>
+        <a href="/" class="text-text-secondary hover:text-text-primary transition-colors text-sm">Volver al inicio</a>
+      </div>
+    </nav>
+
+    <main class="max-w-3xl mx-auto px-6 pt-28 pb-20 legal-content">
+      <h1 class="text-3xl md:text-4xl font-bold mb-2">Politica de Privacidad</h1>
+      <p class="text-text-muted text-sm mb-8">Ultima actualizacion: Marzo 2026</p>
+
+      <p>
+        En GoBecker nos comprometemos a proteger tu privacidad y la de tus clientes.
+        Esta politica describe que informacion recopilamos, como la usamos y como la protegemos,
+        en cumplimiento con la Ley 25.326 de Proteccion de Datos Personales de la Republica Argentina.
+      </p>
+
+      <h2>1. Informacion que Recopilamos</h2>
+      <p>Recopilamos la siguiente informacion cuando usas GoBecker:</p>
+      <ul>
+        <li><strong>Datos de registro:</strong> Nombre, email, telefono, CUIT/CUIL.</li>
+        <li><strong>Datos fiscales:</strong> Certificado digital AFIP, punto de venta, condicion ante IVA.</li>
+        <li><strong>Datos comerciales:</strong> Clientes, productos, facturas, pedidos, stock, precios.</li>
+        <li><strong>Datos de uso:</strong> Acciones dentro de la plataforma, timestamps, direccion IP.</li>
+      </ul>
+
+      <h2>2. Como Usamos tu Informacion</h2>
+      <p>Utilizamos tu informacion exclusivamente para:</p>
+      <ul>
+        <li>Proveer el servicio de gestion y facturacion electronica.</li>
+        <li>Procesar facturas a traves de AFIP/ARCA en tu nombre.</li>
+        <li>Generar reportes y analiticas de tu negocio (visibles solo para vos).</li>
+        <li>Funciones de IA (solo en plan Premium): analizar patrones de venta para sugerencias.</li>
+        <li>Enviar notificaciones sobre el servicio (actualizaciones, mantenimiento).</li>
+        <li>Brindar soporte tecnico.</li>
+      </ul>
+
+      <h2>3. Certificados Digitales AFIP</h2>
+      <p>
+        Tus certificados digitales (.key y .crt) se almacenan cifrados con encriptacion AES-256.
+        Solo se descifran en memoria al momento de autenticar contra los webservices de AFIP.
+        Nunca se transmiten a terceros ni se almacenan en texto plano.
+      </p>
+
+      <h2>4. Comparticion de Datos</h2>
+      <p>
+        <strong>No vendemos, alquilamos ni compartimos tu informacion personal con terceros.</strong>
+      </p>
+      <p>Las unicas excepciones son:</p>
+      <ul>
+        <li><strong>AFIP/ARCA:</strong> Los datos necesarios para emitir comprobantes electronicos se envian a los webservices oficiales de AFIP.</li>
+        <li><strong>Requerimiento legal:</strong> Si una autoridad judicial lo ordena mediante resolucion fundada.</li>
+        <li><strong>Portal de clientes:</strong> Si activas el portal, tus clientes podran ver sus propias facturas, pedidos y saldos.</li>
+      </ul>
+
+      <h2>5. Seguridad</h2>
+      <p>Implementamos las siguientes medidas de seguridad:</p>
+      <ul>
+        <li>Encriptacion en transito (HTTPS/TLS) y en reposo (AES-256).</li>
+        <li>Backups automaticos diarios con retencion de 30 copias.</li>
+        <li>Autenticacion con JWT y refresh tokens.</li>
+        <li>Rate limiting para prevenir ataques de fuerza bruta.</li>
+        <li>Queries parametrizadas para prevenir inyeccion SQL.</li>
+        <li>Headers de seguridad (Helmet, CSP, CORS configurado).</li>
+      </ul>
+
+      <h2>6. Tus Derechos (Ley 25.326)</h2>
+      <p>Como titular de los datos, tenes derecho a:</p>
+      <ul>
+        <li><strong>Acceso:</strong> Solicitar que informacion tenemos sobre vos.</li>
+        <li><strong>Rectificacion:</strong> Corregir datos inexactos.</li>
+        <li><strong>Supresion:</strong> Pedir que eliminemos tus datos personales.</li>
+        <li><strong>Portabilidad:</strong> Exportar todos tus datos en formato estandar.</li>
+      </ul>
+      <p>
+        Para ejercer estos derechos, escribinos a
+        <a href="mailto:facundobecker000@gmail.com" class="text-accent hover:text-accent-light">facundobecker000@gmail.com</a>.
+        Responderemos en un plazo maximo de 10 dias habiles.
+      </p>
+
+      <h2>7. Retencion de Datos</h2>
+      <p>
+        Conservamos tus datos mientras tu cuenta este activa. Si cancelás tu cuenta,
+        los datos comerciales se retienen por 10 anios como lo requiere la legislacion fiscal argentina
+        (Ley 11.683, Art. 48). Los datos personales no fiscales se eliminan dentro de los 30 dias
+        posteriores a la cancelacion.
+      </p>
+
+      <h2>8. Cookies</h2>
+      <p>
+        Utilizamos cookies esenciales para el funcionamiento del servicio (sesion, autenticacion).
+        No utilizamos cookies de seguimiento ni de publicidad de terceros.
+      </p>
+
+      <h2>9. Menores</h2>
+      <p>
+        GoBecker esta destinado a uso comercial por personas mayores de 18 anios.
+        No recopilamos intencionalmente datos de menores de edad.
+      </p>
+
+      <h2>10. Cambios en esta Politica</h2>
+      <p>
+        Podemos actualizar esta politica periodicamente. Los cambios significativos seran
+        notificados por email con al menos 30 dias de anticipacion.
+      </p>
+
+      <h2>11. Contacto</h2>
+      <p>
+        Para consultas sobre privacidad, escribinos a
+        <a href="mailto:facundobecker000@gmail.com" class="text-accent hover:text-accent-light">facundobecker000@gmail.com</a>.
+      </p>
+      <p>
+        Organismo de control: Agencia de Acceso a la Informacion Publica (AAIP),
+        Av. Pte. Julio A. Roca 710, C1067ABP, CABA, Argentina.
+      </p>
+    </main>
+
+    <footer class="border-t border-border py-8 px-6">
+      <div class="max-w-3xl mx-auto flex items-center justify-between">
+        <p class="text-text-muted text-xs">&copy; 2026 GoBecker</p>
+        <a href="/terminos" class="text-text-muted text-xs hover:text-text-primary transition-colors">Terminos de Uso</a>
+      </div>
+    </footer>
+  </body>
+</html>
