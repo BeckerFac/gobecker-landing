@@ -1,12 +1,15 @@
-// Landing copy - single source of truth.
-// Fuente: blueprint-landing.md (juez sobre 3 variantes, angulo ganador: control-orden).
+// Landing copy v2 - single source of truth.
+// Fuente: blueprint-v2 (3 variantes + juez, angulo ganador: plata visible). Precio US$ 70/mes.
 
-export interface Feature {
+export interface BentoFeature {
   id: string;
   kicker: string;
   title: string;
   body: string;
   bullets: string[];
+  accent: string;
+  shot?: string;
+  span: 'lg' | 'sm';
 }
 
 export interface FaqItem {
@@ -25,189 +28,179 @@ export const copy = {
   meta_seo: {
     title: 'GoBecker | Gestor para casas de tecnología en Argentina',
     description:
-      'Stock con IMEI valuado en USD y pesos, reparaciones ordenadas, plan canje y tu ganancia real en un solo lugar. Probá GoBecker 15 días gratis sin tarjeta.',
+      'Stock con IMEI valorizado al blue en USD y ARS, POS, reparaciones y plan canje. 15 días gratis sin tarjeta. US$ 70/mes, plan único todo incluido.',
   },
   hero: {
-    badge: 'Hecho en Argentina para casas de tecnología',
-    headline: 'Cada equipo, cada peso, cada reparación: bajo control',
+    badge: 'Cotización blue en vivo',
+    headline: 'Toda la plata del local, en un número.',
     subheadline:
-      'El gestor para casas de tecnología: stock con IMEI valuado en USD y pesos, reparaciones ordenadas y tu ganancia real, en un solo lugar.',
-    cta_primary: 'Probalo gratis 15 días',
+      'Abrís GoBecker y ves cuánto vale tu stock hoy, en dólares y en pesos al blue. Equipo por equipo, cada uno con su IMEI.',
+    cta_primary: 'Probalo 15 días gratis',
     cta_secondary: 'Escribinos por WhatsApp',
-    micro: '15 días gratis · Sin tarjeta · Cancelás cuando quieras',
+    micro: '15 días gratis · Sin tarjeta · Después US$ 70/mes',
   },
   social_proof: {
-    title: 'Nacido atrás del mostrador, no en una oficina',
+    title: 'Lo que podés verificar antes de pagar',
     items: [
-      'Dólar blue, plan canje y fiados son parte del sistema, no un parche',
-      'Soporte humano directo por WhatsApp, sin bots ni tickets',
-      'Facturación AFIP/ARCA opcional: funciona completo con o sin certificados',
-      '15 días gratis, sin tarjeta de crédito y sin permanencia',
+      'Precio publicado: US$ 70 por mes, plan único',
+      '15 días de prueba sin pedir tarjeta',
+      'Sin permanencia: te vas cuando quieras',
+      'Soporte por WhatsApp, atiende una persona',
     ],
   },
   demo: {
     kicker: 'Producto',
-    title: 'Así se ve por dentro',
-    sub: 'Capturas reales de una tienda demo. Lo que ves es el producto, sin retoques.',
+    title: 'Miralo andando, no en un folleto',
+    sub: 'Videos y capturas reales de una tienda demo. Sin retoques y sin pedirte el mail para verlo.',
     videos: [
       {
         id: 'recorrida',
-        title: 'Recorrida completa por GoBecker',
+        title: 'Recorrida: dashboard, stock, taller y reportes',
         poster: '/shots/reparaciones.webp',
         src: '/videos/recorrida.mp4',
       },
       {
         id: 'venta',
-        title: 'Una venta de punta a punta',
+        title: 'Una venta: buscás el IMEI y cobrás',
         poster: '/shots/venta-modal.webp',
         src: '/videos/venta.mp4',
       },
     ],
     gallery: [
       { shot: '/shots/analytics.webp', caption: 'Reportes: total operado del mes, ventas y servicio técnico' },
-      { shot: '/shots/venta-detalle.webp', caption: 'Cada venta con su cliente, su pago y su PDF' },
+      { shot: '/shots/ventas-lista.webp', caption: 'Cada venta con su cliente, su pago y su estado' },
     ],
   },
   features: [
     {
       id: 'inventario',
-      kicker: 'Inventario',
-      title: 'Sabé qué tenés y cuánto vale hoy',
+      kicker: 'Stock',
+      title: 'Tu stock, valorizado al blue',
       body:
-        'Cada equipo entra con su IMEI o número de serie y no se pierde más de vista. El stock se valoriza en USD y pesos con la cotización blue actualizada en vivo: abrís el inventario y sabés cuánta plata tenés parada en el mostrador.',
-      bullets: [
-        'IMEI o número de serie por cada unidad',
-        'Valorización en USD y ARS con el blue en vivo',
-        'Celulares, notebooks, PCs y accesorios en un mismo stock',
-      ],
-      shot: '/shots/inventario-deep.webp',
+        'Cada equipo entra con su IMEI o serie. El sistema valoriza todo con la cotización blue en vivo, en dólares y en pesos. Abrís el stock y ves cuánta plata hay ahí adentro, hoy.',
+      bullets: ['Cotización blue en vivo', 'IMEI o serie por equipo'],
+      accent: 'var(--color-green)',
+      shot: '/shots/inventario.webp',
+      span: 'lg',
     },
     {
       id: 'reparaciones',
-      kicker: 'Servicio técnico',
-      title: 'Cada reparación en su lugar, siempre',
+      kicker: 'Taller',
+      title: 'El taller sin papelitos',
       body:
-        'Una reparación olvidada es plata que no entra. En el board del taller cada equipo pasa por seis estados, de recibido a entregado, con su orden de trabajo y un certificado de garantía en PDF con tu logo. El cliente pregunta y respondés al toque, sin revolver el cuaderno.',
-      bullets: [
-        'Board por estados: de recibido a entregado, todo a la vista',
-        'Orden de trabajo por cada equipo que entra',
-        'Certificado de garantía en PDF con el logo de tu taller',
-      ],
+        'Un board con cada reparación por estado: de recibido a entregado. Cada equipo con su orden de trabajo y certificado de garantía en PDF. El cliente pregunta, vos mirás la pantalla.',
+      bullets: ['OT por cada equipo', 'Certificado de garantía en PDF'],
+      accent: 'var(--color-acc-orange)',
       shot: '/shots/reparaciones.webp',
+      span: 'sm',
     },
     {
       id: 'pos',
-      kicker: 'Ventas',
-      title: 'Venta en segundos, comprobante con tu logo',
+      kicker: 'Mostrador',
+      title: 'Cargás el IMEI y cobrás',
       body:
-        'Un punto de venta pensado para el mostrador: buscás el equipo por IMEI, cargás el pago y listo. El comprobante, el remito y la garantía llevan el logo de tu negocio, no el de un sistema genérico. La imagen de una cadena, aunque atiendas vos solo.',
-      bullets: [
-        'Venta por IMEI o número de serie, unidad por unidad',
-        'Comprobantes, remitos y garantías con tu marca',
-        'Facturación AFIP/ARCA opcional; sin certificados, comprobantes internos igual de prolijos',
-      ],
+        'Buscás el equipo por IMEI, cerrás la venta y sale el comprobante, remito o garantía con el logo de tu negocio. El stock se descuenta solo. Nada de armar recibos en Word.',
+      bullets: ['Venta rápida por IMEI', 'Comprobantes con tu logo'],
+      accent: 'var(--color-acc-blue)',
       shot: '/shots/venta-modal.webp',
+      span: 'sm',
     },
-  ] as (Feature & { shot: string })[],
-  features_cards: [
     {
       id: 'canje',
       kicker: 'Plan canje',
-      title: 'Tomá usados como parte de pago',
+      title: 'El usado entra como pago',
       body:
-        'El canje es pan de todos los días, pero mal registrado te come el margen. Con GoBecker el usado entra al stock con su IMEI, valorizado en USD y pesos, y la diferencia queda registrada en la misma venta. Deja de ser un cálculo mental arriba del mostrador.',
-      bullets: [
-        'El usado entra al inventario con su IMEI desde el primer momento',
-        'Valor del usado descontado del total, claro para el cliente',
-        'Todo el circuito del canje queda documentado en la misma operación',
-      ],
+        'Te traen un usado, lo aceptás y entra derecho al stock con su IMEI, listo para revender. Queda anotado quién lo trajo, a cuánto lo tomaste y qué se llevó a cambio.',
+      bullets: ['Entra al stock con IMEI', 'Historial de cada canje'],
+      accent: 'var(--color-acc-purple)',
+      span: 'sm',
     },
     {
       id: 'control',
-      kicker: 'Números reales',
-      title: 'Cuánto ganás de verdad, sin adivinar',
+      kicker: 'Números',
+      title: 'Ganancia real, no la del cuaderno',
       body:
-        'El dashboard separa flujo de caja, dinero líquido, reinvertido y ganancia real. Los fiados quedan en cuentas corrientes por cliente, y las comisiones de vendedores y técnicos se calculan solas, usuario por usuario. Los números claros, aunque el dólar se mueva.',
-      bullets: [
-        'Dashboard con caja, dinero líquido, reinvertido y ganancia real',
-        'Cuentas corrientes: se acabaron los fiados sin control',
-        'Multi-usuario con comisiones por vendedor y técnico',
-      ],
+        'Un tablero con ingresos, costos, ganancia bruta y neta, y cuánto reinvertiste en el período. Más cuentas corrientes por cliente y comisiones de vendedores y técnicos, calculadas solas.',
+      bullets: ['Ganancia bruta y neta', 'Comisiones por vendedor y técnico'],
+      accent: 'var(--color-acc-pink)',
+      shot: '/shots/analytics.webp',
+      span: 'sm',
     },
-  ] as Feature[],
+  ] as BentoFeature[],
   para_quien: {
     kicker: 'Para quién es',
-    title: 'Si vendés o reparás tecnología, es para vos',
+    title: 'Tres mostradores, el mismo problema',
     cards: [
       {
         title: 'Revendedor de iPhone',
         body:
-          'Comprás y vendés en dólares, cobrás en pesos y el blue no para. Con stock valorizado en vivo e IMEI por unidad, sabés cuánto ganás en cada equipo, de verdad.',
+          'Comprás y vendés en dólares, cobrás en pesos y el blue se mueve todos los días. GoBecker te mantiene el stock valorizado y cada equipo atado a su IMEI.',
       },
       {
         title: 'Tienda multi-marca',
         body:
-          'Celulares, notebooks, PCs y accesorios en un solo sistema. Vendés rápido en el mostrador, tomás usados en parte de pago y cada comprobante sale con el logo de tu tienda.',
+          'Celulares, notebooks, accesorios: cientos de productos y precios que cambian seguido. Todo tu stock en un solo lugar, con venta rápida por mostrador y cuentas corrientes por cliente.',
       },
       {
         title: 'Servicio técnico',
         body:
-          'Cada equipo que entra al taller tiene su orden de trabajo, su estado y su historia. El cliente retira con certificado de garantía en PDF y tu taller queda como un negocio serio.',
+          'Equipos que entran, se reparan y salen. Cada uno con su orden de trabajo, su estado en el board y su certificado de garantía en PDF para el cliente.',
       },
     ],
   },
   pricing: {
-    kicker: 'Precio',
-    title: 'Un solo plan, todo incluido',
-    sub: 'Todas las funciones desde el primer día. Sin módulos que se cobren aparte, sin costos escondidos, sin permanencia.',
-    plan_name: 'Plan único GoBecker',
+    kicker: 'Precio a la vista',
+    title: 'Un plan. Un precio. Todo adentro.',
+    sub: 'La mayoría de los gestores te hace pedir una demo para saber cuánto salen. Acá lo ves de entrada: un solo plan, con todo incluido y sin sorpresas después.',
+    plan_name: 'Plan único',
+    price_line: 'US$ 70',
     includes: [
-      'POS de venta rápida con IMEI y número de serie',
-      'Inventario valorizado en USD y ARS con dólar blue en vivo',
-      'Board de reparaciones con órdenes de trabajo y garantías en PDF',
-      'Plan canje: usados como parte de pago',
-      'Cuentas corrientes e historial completo por cliente',
-      'Comprobantes, remitos y garantías con tu logo',
-      'Multi-usuario con comisiones de vendedores y técnicos',
-      'Facturación AFIP/ARCA opcional y soporte humano por WhatsApp',
+      'Equipos ilimitados con IMEI',
+      'Stock valorizado con blue en vivo',
+      'POS, remitos y garantías con tu logo',
+      'Board de reparaciones con OT',
+      'Plan canje de usados',
+      'Tablero de ganancia y costos',
+      'Cuentas corrientes y comisiones',
+      'Facturación AFIP/ARCA opcional',
     ],
-    trial_line: '15 días gratis, sin tarjeta',
-    cta: 'Empezar prueba gratis',
-    micro: 'Sin tarjeta de crédito · Sin permanencia · Cancelás cuando quieras',
+    trial_line: 'Probalo 15 días gratis. Sin tarjeta, sin permanencia.',
+    cta: 'Empezar gratis',
+    micro: 'Cancelás cuando quieras. Soporte humano por WhatsApp.',
   },
   faq: [
     {
-      q: '¿Es difícil de aprender? Yo me manejo con Excel y cuaderno',
-      a: 'No. Está pensado para gente que atiende un mostrador, no para contadores. Cargás tu primer equipo en minutos y vendés el mismo día. Y si te trabás, escribís al WhatsApp de soporte y te responde una persona real, no un bot.',
+      q: '¿Es difícil de aprender?',
+      a: 'No. Si manejás WhatsApp, manejás GoBecker. Cargás un equipo, lo vendés y sale el comprobante. Eso es todo. Y si te trabás, nos escribís por WhatsApp y te contesta una persona, no un bot.',
     },
     {
       q: '¿Mis datos están seguros?',
-      a: 'Sí. Cada negocio tiene su espacio propio: tus datos son tuyos y nadie más los ve. La información viaja cifrada y queda guardada en la nube, no en una compu que se puede romper o perder. Entrás con tu usuario desde cualquier dispositivo.',
+      a: 'Sí. Tus datos quedan en tu cuenta, en la nube, no en una compu que se puede romper. Solo entra tu equipo, cada uno con su propia clave y sus permisos. Tus números son tuyos.',
     },
     {
-      q: '¿Necesito facturar con AFIP/ARCA sí o sí?',
-      a: 'No. Si tenés certificados fiscales, facturás directo desde el sistema. Si no, emitís comprobantes internos igual de prolijos, con tu logo. Vos decidís cuándo dar ese paso: el sistema funciona completo en los dos casos.',
+      q: '¿Estoy obligado a facturar con AFIP/ARCA?',
+      a: 'No. GoBecker funciona completo sin certificados. La facturación AFIP/ARCA es opcional: si un día la querés, la activás. Mientras tanto vendés igual, con tus comprobantes y garantías.',
     },
     {
-      q: '¿Cuánto sale?',
-      a: 'Es un plan único con todo incluido: sin módulos aparte, sin costos escondidos y sin permanencia. Arrancás con 15 días gratis sin tarjeta y ves el precio claro antes de pagar. Si querés el número ya, escribinos por WhatsApp y te lo pasamos al toque.',
+      q: '¿Por qué cobran en dólares y cuánto sale?',
+      a: 'Sale US$ 70 por mes, plan único, todo incluido. Sin extras ni planes escondidos. Está en dólares por lo mismo que tu stock: los equipos se cotizan en dólares, así el precio no salta con cada corrida del peso.',
     },
     {
-      q: '¿Funciona en el celular?',
-      a: 'Sí. Anda en el navegador de cualquier dispositivo: celular, tablet o computadora, sin instalar nada. Podés cargar una venta parado en el mostrador o mirar la caja desde tu casa.',
+      q: '¿Lo puedo manejar desde el celular?',
+      a: 'Sí. Anda en el navegador: celular, tablet o compu. No instalás nada. Atendés en el mostrador con la compu y mirás el stock o el board de reparaciones desde donde estés.',
     },
     {
-      q: '¿Qué pasa cuando se terminan los 15 días de prueba?',
-      a: 'Nada raro: como nunca pusiste tarjeta, no hay cobro automático. Si te sirvió, contratás el plan y seguís justo donde estabas, con todos tus datos cargados. Si no, no pagás nada y no te perseguimos.',
+      q: '¿Qué pasa cuando se terminan los 15 días?',
+      a: 'Nada raro. Como no dejaste tarjeta, no hay cobro sorpresa. Si te sirvió, pagás US$ 70 por mes y seguís con todo lo que cargaste. Si no, no pagás nada y listo.',
     },
     {
-      q: 'Tengo todo en Excel y cuadernos, ¿cómo hago para pasarme?',
-      a: 'De a poco y sin drama. Arrancá cargando el stock que tenés hoy y las reparaciones abiertas; el resto lo sumás con el día a día. Si necesitás una mano con la carga inicial, escribinos por WhatsApp y te acompañamos.',
+      q: 'Uso Excel y cuaderno hace años. ¿Cómo paso todo?',
+      a: 'Arrancás cargando los equipos que tenés hoy: IMEI, costo y listo. En una tarde tenés el stock adentro, valorizado en dólares y pesos. Los clientes y las cuentas los sumás de a poco. Y si te complicás, te damos una mano por WhatsApp.',
     },
   ] as FaqItem[],
   cta_final: {
-    title: 'Ordená tu negocio de una vez',
-    sub: 'En 15 días sabés si es para vos. Sin tarjeta, sin permanencia y con una persona real del otro lado del WhatsApp.',
-    cta: 'Crear mi cuenta gratis',
+    title: '¿Cuánta plata hay en tu local hoy?',
+    sub: 'Creá tu cuenta gratis, cargá tus equipos esta tarde y a la noche ya tenés el número. 15 días, sin tarjeta, sin permanencia.',
+    cta: 'Probar GoBecker gratis',
   },
 };

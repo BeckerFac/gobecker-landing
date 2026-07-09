@@ -1,13 +1,11 @@
 ---
 import { copy } from '../../content/copy';
 
-// VIDEO SLOTS para Facu:
-// 1. Grabar los videos y guardarlos como public/videos/recorrida.mp4 y public/videos/venta.mp4
-// 2. Commit + push: los slots los levantan solos (el boton de play detecta si el mp4 existe).
-// 3. Los posters son screenshots reales de la demo TecnoCenter (public/shots/).
+// VIDEOS: grabados de la app real (demo TecnoCenter) con Playwright.
+// Para reemplazarlos por versiones grabadas a mano: pisar public/videos/recorrida.mp4 y venta.mp4.
 ---
 
-<section id="producto" class="bg-paper-2 section-pad">
+<section id="producto" class="bg-card border-y border-line section-pad">
   <div class="max-w-6xl mx-auto">
     <div class="reveal max-w-2xl">
       <p class="kicker mb-3">{copy.demo.kicker}</p>
@@ -22,7 +20,7 @@ import { copy } from '../../content/copy';
             <img src={video.poster} alt={video.title} width="1920" height="1080" loading="lazy" />
             <div class="play-badge">
               <div class="play-circle">
-                <svg width="26" height="26" viewBox="0 0 24 24" fill="#0B1220" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg>
+                <svg width="26" height="26" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg>
               </div>
             </div>
           </div>
@@ -31,7 +29,7 @@ import { copy } from '../../content/copy';
       ))}
     </div>
 
-    <div class="grid sm:grid-cols-3 gap-5 mt-12" data-stagger>
+    <div class="grid sm:grid-cols-2 gap-6 mt-10" data-stagger>
       {copy.demo.gallery.map((item) => (
         <figure class="reveal">
           <div class="frame-light">

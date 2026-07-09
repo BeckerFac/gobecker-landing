@@ -3,7 +3,6 @@ import '../styles/global.css';
 import { copy } from '../content/copy';
 import Nav from '../components/sections/Nav.astro';
 import Hero from '../components/sections/Hero.astro';
-import TrustBar from '../components/sections/TrustBar.astro';
 import Demo from '../components/sections/Demo.astro';
 import Features from '../components/sections/Features.astro';
 import ParaQuien from '../components/sections/ParaQuien.astro';
@@ -11,6 +10,7 @@ import Pricing from '../components/sections/Pricing.astro';
 import Faq from '../components/sections/Faq.astro';
 import CtaFinal from '../components/sections/CtaFinal.astro';
 import Footer from '../components/sections/Footer.astro';
+import StickyCta from '../components/sections/StickyCta.astro';
 
 const SITE = 'https://gobecker.com.ar';
 ---
@@ -24,7 +24,7 @@ const SITE = 'https://gobecker.com.ar';
     <meta name="description" content={copy.meta_seo.description} />
     <link rel="canonical" href={SITE} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="theme-color" content="#0B1220" />
+    <meta name="theme-color" content="#101315" />
 
     <meta property="og:type" content="website" />
     <meta property="og:url" content={SITE} />
@@ -34,9 +34,10 @@ const SITE = 'https://gobecker.com.ar';
     <meta property="og:locale" content="es_AR" />
     <meta name="twitter:card" content="summary_large_image" />
 
-    <link rel="preload" href="/fonts/cabinet-grotesk-800.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/switzer-400.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/fonts/switzer-600.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/clash-display-600.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/general-sans-400.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/general-sans-600.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/space-grotesk-500.woff2" as="font" type="font/woff2" crossorigin />
 
     <script
       type="application/ld+json"
@@ -49,14 +50,19 @@ const SITE = 'https://gobecker.com.ar';
         description: copy.meta_seo.description,
         url: SITE,
         inLanguage: 'es-AR',
+        offers: {
+          '@type': 'Offer',
+          price: '70',
+          priceCurrency: 'USD',
+          description: 'Plan único mensual, todo incluido. 15 días de prueba gratis sin tarjeta.',
+        },
       })}
     />
   </head>
-  <body class="bg-ink">
+  <body class="bg-bg">
     <Nav />
-    <main class="bg-paper">
+    <main>
       <Hero />
-      <TrustBar />
       <Demo />
       <Features />
       <ParaQuien />
@@ -65,12 +71,13 @@ const SITE = 'https://gobecker.com.ar';
       <CtaFinal />
     </main>
     <Footer />
+    <StickyCta />
 
     <script>
-      // Hero entrance
+      // Entrada orquestada del hero
       requestAnimationFrame(() => document.body.classList.add('loaded'));
 
-      // Scroll reveal (transform + opacity only)
+      // Scroll reveal (solo transform + opacity)
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const reveals = document.querySelectorAll('.reveal');
       if (reduced || !('IntersectionObserver' in window)) {
@@ -90,13 +97,17 @@ const SITE = 'https://gobecker.com.ar';
         reveals.forEach((el) => io.observe(el));
       }
 
-      // Nav background on scroll
+      // Nav con fondo al scrollear + sticky CTA mobile tras pasar el hero
       const nav = document.getElementById('nav');
-      const onScroll = () => nav?.classList.toggle('scrolled', window.scrollY > 24);
+      const sticky = document.getElementById('sticky-cta');
+      const onScroll = () => {
+        nav?.classList.toggle('scrolled', window.scrollY > 24);
+        sticky?.classList.toggle('show', window.scrollY > window.innerHeight * 0.9);
+      };
       onScroll();
       window.addEventListener('scroll', onScroll, { passive: true });
 
-      // Mobile menu
+      // Menu mobile
       const menuBtn = document.getElementById('menu-btn');
       const menuPanel = document.getElementById('menu-panel');
       menuBtn?.addEventListener('click', () => {
@@ -108,7 +119,7 @@ const SITE = 'https://gobecker.com.ar';
         link.addEventListener('click', () => menuPanel.classList.add('hidden'))
       );
 
-      // Video slots: play if the mp4 exists, otherwise honest fallback.
+      // Video slots: reproducir el mp4 si existe
       document.querySelectorAll<HTMLElement>('.video-slot').forEach((slot) => {
         const activate = async () => {
           const src = slot.dataset.videoSrc;
@@ -136,7 +147,7 @@ const SITE = 'https://gobecker.com.ar';
             const badge = slot.querySelector('.play-badge');
             if (badge) {
               badge.innerHTML =
-                '<span style="background:rgba(255,255,255,0.95);color:#17202B;font-weight:600;font-size:0.9375rem;padding:0.6rem 1.1rem;border-radius:99px;">El video llega muy pronto</span>';
+                '<span style="background:rgba(255,255,255,0.95);color:#1B2228;font-weight:600;font-size:0.9375rem;padding:0.6rem 1.1rem;border-radius:99px;">El video llega muy pronto</span>';
             }
             setTimeout(() => {
               delete slot.dataset.state;

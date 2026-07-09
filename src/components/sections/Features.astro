@@ -2,45 +2,35 @@
 import { copy } from '../../content/copy';
 ---
 
-<section id="funciones" class="bg-paper section-pad">
-  <div class="max-w-6xl mx-auto flex flex-col gap-20 sm:gap-28">
-    {copy.features.map((feature, i) => (
-      <div class={`grid lg:grid-cols-2 gap-10 lg:gap-16 items-center ${i % 2 === 1 ? 'lg:[direction:rtl]' : ''}`}>
-        <div class="reveal lg:[direction:ltr]">
-          <p class="kicker mb-3">{feature.kicker}</p>
-          <h3 class="display text-3xl sm:text-4xl">{feature.title}</h3>
-          <p class="text-text-2 text-lg mt-4 leading-relaxed">{feature.body}</p>
-          <ul class="mt-6 flex flex-col gap-3">
-            {feature.bullets.map((bullet) => (
-              <li class="flex items-start gap-3 text-text">
-                <svg class="check-ok mt-1.5" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.5 4.5 6.4 11.6 2.5 7.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                {bullet}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div class="reveal lg:[direction:ltr]">
-          <div class="frame-light">
-            <img src={feature.shot} alt={feature.title} width="1920" height="1080" loading="lazy" />
-          </div>
-        </div>
-      </div>
-    ))}
+<section id="funciones" class="bg-bg section-pad">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal max-w-2xl">
+      <p class="kicker mb-3">Funciones</p>
+      <h2 class="display text-4xl sm:text-5xl">Lo que hace, sin vueltas</h2>
+    </div>
 
-    <div class="grid md:grid-cols-2 gap-6" data-stagger>
-      {copy.features_cards.map((card) => (
-        <div class="reveal bg-paper-2 border border-line rounded-2xl p-8 sm:p-10">
-          <p class="kicker mb-3">{card.kicker}</p>
-          <h3 class="display text-2xl sm:text-3xl">{card.title}</h3>
-          <p class="text-text-2 mt-3.5 leading-relaxed">{card.body}</p>
-          <ul class="mt-5 flex flex-col gap-2.5">
-            {card.bullets.map((bullet) => (
-              <li class="flex items-start gap-3 text-text text-[0.9375rem]">
+    <div class="grid md:grid-cols-6 gap-5 mt-12" data-stagger>
+      {copy.features.map((f) => (
+        <div
+          class={`reveal bento-cell ${f.span === 'lg' ? 'md:col-span-4' : 'md:col-span-2'}`}
+          style={`--cell-accent: ${f.accent}`}
+        >
+          <p class="num text-[0.8125rem] uppercase tracking-[0.1em] font-medium mb-2.5" style={`color: ${f.accent}`}>{f.kicker}</p>
+          <h3 class="display text-2xl sm:text-[1.75rem]">{f.title}</h3>
+          <p class="text-text-2 mt-3 leading-relaxed text-[0.9375rem]">{f.body}</p>
+          <ul class="mt-4 flex flex-col gap-2">
+            {f.bullets.map((b) => (
+              <li class="flex items-start gap-2.5 text-[0.9375rem] text-text">
                 <svg class="check-ok mt-1" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.5 4.5 6.4 11.6 2.5 7.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                {bullet}
+                {b}
               </li>
             ))}
           </ul>
+          {f.shot && (
+            <div class="frame-inner">
+              <img src={f.shot} alt={f.title} width="1920" height="1080" loading="lazy" />
+            </div>
+          )}
         </div>
       ))}
     </div>

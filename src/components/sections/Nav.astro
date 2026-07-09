@@ -6,36 +6,36 @@ import { copy, REGISTER_URL, LOGIN_URL } from '../../content/copy';
   <nav class="max-w-6xl mx-auto flex items-center justify-between px-6 py-4">
     <a href="/" class="flex items-center gap-2.5" aria-label="GoBecker, inicio">
       <img src="/favicon.svg" alt="" width="30" height="30" class="rounded-lg" />
-      <span class="display text-inv text-xl font-bold tracking-tight">GoBecker</span>
+      <span class="display text-text text-xl font-semibold tracking-tight">GoBecker</span>
     </a>
 
     <div class="hidden md:flex items-center gap-8">
-      <a href="#producto" class="text-inv-2 hover:text-inv text-[0.9375rem] transition-colors">Producto</a>
-      <a href="#funciones" class="text-inv-2 hover:text-inv text-[0.9375rem] transition-colors">Funciones</a>
-      <a href="#precios" class="text-inv-2 hover:text-inv text-[0.9375rem] transition-colors">Precio</a>
-      <a href="#faq" class="text-inv-2 hover:text-inv text-[0.9375rem] transition-colors">Preguntas</a>
+      <a href="#producto" class="text-text-2 hover:text-text text-[0.9375rem] transition-colors">Producto</a>
+      <a href="#funciones" class="text-text-2 hover:text-text text-[0.9375rem] transition-colors">Funciones</a>
+      <a href="#precio" class="text-text-2 hover:text-text text-[0.9375rem] transition-colors">Precio</a>
+      <a href="#faq" class="text-text-2 hover:text-text text-[0.9375rem] transition-colors">Preguntas</a>
     </div>
 
     <div class="flex items-center gap-3">
-      <a href={LOGIN_URL} class="hidden sm:inline text-inv-2 hover:text-inv text-[0.9375rem] transition-colors">Ingresar</a>
+      <a href={LOGIN_URL} class="hidden sm:inline text-text-2 hover:text-text text-[0.9375rem] transition-colors">Ingresar</a>
       <a href={REGISTER_URL} class="btn btn-primary !py-2.5 !px-4 !text-[0.9375rem]">
         <span class="sm:hidden">Probalo gratis</span>
         <span class="hidden sm:inline">{copy.hero.cta_primary}</span>
       </a>
       <button id="menu-btn" class="md:hidden flex flex-col justify-center gap-[5px] w-10 h-10 items-center" aria-label="Abrir menú" aria-expanded="false">
-        <span class="block w-5 h-[2px] bg-inv"></span>
-        <span class="block w-5 h-[2px] bg-inv"></span>
+        <span class="block w-5 h-[2px] bg-text"></span>
+        <span class="block w-5 h-[2px] bg-text"></span>
       </button>
     </div>
   </nav>
 
-  <div id="menu-panel" class="hidden md:hidden bg-ink border-t border-white/10 px-6 py-4">
+  <div id="menu-panel" class="hidden md:hidden bg-bg border-t border-line px-6 py-4">
     <div class="flex flex-col gap-4">
-      <a href="#producto" class="text-inv text-base menu-link">Producto</a>
-      <a href="#funciones" class="text-inv text-base menu-link">Funciones</a>
-      <a href="#precios" class="text-inv text-base menu-link">Precio</a>
-      <a href="#faq" class="text-inv text-base menu-link">Preguntas</a>
-      <a href={LOGIN_URL} class="text-inv-2 text-base menu-link">Ingresar</a>
+      <a href="#producto" class="text-text text-base menu-link">Producto</a>
+      <a href="#funciones" class="text-text text-base menu-link">Funciones</a>
+      <a href="#precio" class="text-text text-base menu-link">Precio</a>
+      <a href="#faq" class="text-text text-base menu-link">Preguntas</a>
+      <a href={LOGIN_URL} class="text-text-2 text-base menu-link">Ingresar</a>
     </div>
   </div>
 </header>
