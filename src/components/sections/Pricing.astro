@@ -1,0 +1,38 @@
+---
+import { copy, REGISTER_URL, WA_URL } from '../../content/copy';
+
+// PRECIO: cuando Facu defina el precio mensual, agregarlo dentro de la card
+// (debajo de plan_name), formato: <p class="display text-5xl">$XX.XXX <span class="text-text-3 text-lg font-mono">ARS/mes</span></p>
+---
+
+<section id="precios" class="bg-paper section-pad">
+  <div class="max-w-6xl mx-auto">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <p class="kicker mb-3">{copy.pricing.kicker}</p>
+      <h2 class="display text-4xl sm:text-5xl">{copy.pricing.title}</h2>
+      <p class="text-text-2 text-lg mt-4">{copy.pricing.sub}</p>
+    </div>
+
+    <div class="reveal max-w-xl mx-auto mt-12 bg-paper border border-line rounded-3xl p-8 sm:p-11 shadow-[0_20px_60px_-32px_rgba(23,32,43,0.25)]">
+      <p class="font-mono text-[0.8125rem] uppercase tracking-wide text-text-3">{copy.pricing.plan_name}</p>
+      <p class="display text-3xl sm:text-4xl mt-2">{copy.pricing.trial_line}</p>
+
+      <ul class="mt-8 grid sm:grid-cols-2 gap-x-6 gap-y-3.5">
+        {copy.pricing.includes.map((item) => (
+          <li class="flex items-start gap-2.5 text-[0.9375rem] text-text leading-snug">
+            <svg class="check-ok mt-1" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.5 4.5 6.4 11.6 2.5 7.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            {item}
+          </li>
+        ))}
+      </ul>
+
+      <a href={REGISTER_URL} class="btn btn-primary w-full mt-9 !py-4 !text-[1.0625rem]">{copy.pricing.cta}</a>
+      <p class="font-mono text-[0.8125rem] text-text-3 text-center mt-4">{copy.pricing.micro}</p>
+    </div>
+
+    <p class="reveal text-center text-text-2 mt-8">
+      ¿Preferís que te lo cuente una persona?
+      <a href={WA_URL} target="_blank" rel="noopener" class="text-brand font-semibold hover:underline">Escribinos por WhatsApp</a>
+    </p>
+  </div>
+</section>

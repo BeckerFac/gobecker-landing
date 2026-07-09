@@ -1,0 +1,50 @@
+---
+import { LOGIN_URL, WA_URL } from '../../content/copy';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="bg-ink border-t border-white/8 px-6 py-14">
+  <div class="max-w-6xl mx-auto">
+    <div class="flex flex-col md:flex-row justify-between gap-10">
+      <div class="max-w-xs">
+        <a href="/" class="flex items-center gap-2.5" aria-label="GoBecker, inicio">
+          <img src="/favicon.svg" alt="" width="28" height="28" class="rounded-lg" />
+          <span class="display text-inv text-lg font-bold">GoBecker</span>
+        </a>
+        <p class="text-inv-2 text-[0.9375rem] mt-4 leading-relaxed">
+          El sistema de gestión para casas de tecnología. Hecho en Argentina.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-2 sm:grid-cols-3 gap-10">
+        <div>
+          <p class="font-mono text-[0.8125rem] uppercase tracking-wide text-inv-2 mb-4">Producto</p>
+          <ul class="flex flex-col gap-2.5 text-[0.9375rem]">
+            <li><a href="#funciones" class="text-inv-2 hover:text-inv transition-colors">Funciones</a></li>
+            <li><a href="#precios" class="text-inv-2 hover:text-inv transition-colors">Precio</a></li>
+            <li><a href="#faq" class="text-inv-2 hover:text-inv transition-colors">Preguntas</a></li>
+            <li><a href={LOGIN_URL} class="text-inv-2 hover:text-inv transition-colors">Ingresar</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-mono text-[0.8125rem] uppercase tracking-wide text-inv-2 mb-4">Contacto</p>
+          <ul class="flex flex-col gap-2.5 text-[0.9375rem]">
+            <li><a href={WA_URL} target="_blank" rel="noopener" class="text-inv-2 hover:text-inv transition-colors">WhatsApp</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-mono text-[0.8125rem] uppercase tracking-wide text-inv-2 mb-4">Legal</p>
+          <ul class="flex flex-col gap-2.5 text-[0.9375rem]">
+            <li><a href="/terminos" class="text-inv-2 hover:text-inv transition-colors">Términos</a></li>
+            <li><a href="/privacidad" class="text-inv-2 hover:text-inv transition-colors">Privacidad</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-inv-2 font-mono text-[0.8125rem] mt-12 pt-8 border-t border-white/8">
+      © {year} GoBecker · Hecho en Argentina
+    </p>
+  </div>
+</footer>

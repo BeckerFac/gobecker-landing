@@ -1,0 +1,17 @@
+---
+import { copy, REGISTER_URL, WA_URL } from '../../content/copy';
+---
+
+<section
+  class="bg-ink section-pad"
+  style="background-image: radial-gradient(ellipse 55% 60% at 50% 110%, rgba(41, 82, 227, 0.16), transparent 70%);"
+>
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="reveal display text-inv text-4xl sm:text-5xl">{copy.cta_final.title}</h2>
+    <p class="reveal text-inv-2 text-lg mt-5 max-w-xl mx-auto">{copy.cta_final.sub}</p>
+    <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-3.5 mt-9">
+      <a href={REGISTER_URL} class="btn btn-primary w-full sm:w-auto !text-[1.0625rem] !px-7 !py-4">{copy.cta_final.cta}</a>
+      <a href={WA_URL} target="_blank" rel="noopener" class="btn btn-ghost-dark w-full sm:w-auto !text-[1.0625rem] !px-7 !py-4">Hablar por WhatsApp</a>
+    </div>
+  </div>
+</section>

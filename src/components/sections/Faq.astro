@@ -1,0 +1,24 @@
+---
+import { copy } from '../../content/copy';
+---
+
+<section id="faq" class="bg-paper-2 section-pad">
+  <div class="max-w-3xl mx-auto">
+    <div class="reveal">
+      <p class="kicker mb-3">Preguntas frecuentes</p>
+      <h2 class="display text-4xl sm:text-5xl">Lo que todos preguntan</h2>
+    </div>
+
+    <div class="mt-10 border-t border-line">
+      {copy.faq.map((item) => (
+        <details class="faq-item reveal">
+          <summary>
+            {item.q}
+            <span class="faq-x" aria-hidden="true"></span>
+          </summary>
+          <p class="text-text-2 pb-5 leading-relaxed -mt-1">{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
