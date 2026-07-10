@@ -1,55 +1,61 @@
 ---
 import { copy, REGISTER_URL, WA_URL } from '../../content/copy';
+
+// VIDEO DEL HERO: hoy reproduce public/videos/recorrida.mp4 (recorrida real del producto).
+// Cuando Facu grabe su video explicando GoBecker: pisar ese archivo (o cambiar data-video-src)
+// y opcionalmente el poster (public/shots/reparaciones.webp).
 ---
 
-<section class="bg-bg pt-32 pb-16 sm:pt-36 px-6 relative overflow-hidden">
-  <div class="max-w-6xl mx-auto">
-    <div class="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-      <div class="lg:col-span-6">
-        <p class="hero-seq hero-seq-1 inline-flex items-center gap-2 border border-line bg-card rounded-full px-4 py-1.5 num text-[0.8125rem] text-text-2 mb-7">
-          <span class="w-1.5 h-1.5 rounded-full bg-green inline-block"></span>
-          {copy.hero.badge}
-        </p>
+<section class="bg-bg pt-32 pb-16 sm:pt-40 sm:pb-20 px-6 relative overflow-hidden">
+  <div class="max-w-6xl mx-auto text-center">
+    <p class="hero-seq hero-seq-1 inline-flex items-center gap-2 border border-line bg-card rounded-full px-4 py-1.5 num text-[0.8125rem] text-text-2 mb-7">
+      <span class="w-1.5 h-1.5 rounded-full bg-green inline-block"></span>
+      {copy.hero.badge}
+    </p>
 
-        <h1 class="hero-seq hero-seq-2 display text-text" style="font-size: clamp(2.5rem, 5.2vw, 4.25rem);">
-          {copy.hero.headline}
-        </h1>
+    <h1 class="hero-seq hero-seq-2 display text-text mx-auto max-w-4xl" style="font-size: clamp(2.75rem, 6.5vw, 5rem);">
+      Toda la plata del local, <span class="hl">en un número.</span>
+    </h1>
 
-        <p class="hero-seq hero-seq-3 text-text-2 text-lg sm:text-xl mt-6 leading-relaxed max-w-xl">
-          {copy.hero.subheadline}
-        </p>
+    <p class="hero-seq hero-seq-3 text-text-2 text-lg sm:text-xl max-w-2xl mx-auto mt-6 leading-relaxed">
+      {copy.hero.subheadline}
+    </p>
 
-        <div class="hero-seq hero-seq-4 flex flex-col sm:flex-row sm:items-center gap-3.5 mt-8">
-          <a href={REGISTER_URL} class="btn btn-primary !text-[1.0625rem] !px-7 !py-4">{copy.hero.cta_primary}</a>
-          <a href={WA_URL} target="_blank" rel="noopener" class="btn btn-outline !text-[1.0625rem] !px-7 !py-4">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.44 15.1L2 22l5.05-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.35-.52.05-1.01.24-3.4-.7-2.87-1.14-4.68-4.06-4.82-4.25-.14-.19-1.15-1.53-1.15-2.92s.73-2.07.99-2.35c.26-.28.56-.35.75-.35h.54c.17 0 .4-.06.63.48.24.56.8 1.95.87 2.09.07.14.12.31.02.5-.09.19-.14.3-.28.47l-.42.5c-.14.14-.29.3-.12.58.16.28.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.28.14.45.12.61-.07.17-.19.7-.82.89-1.1.19-.28.38-.23.63-.14.26.1 1.64.78 1.92.92.28.14.47.21.54.32.07.12.07.68-.17 1.32Z"/></svg>
-            {copy.hero.cta_secondary}
-          </a>
-        </div>
-
-        <p class="hero-seq hero-seq-4 num text-[0.8125rem] text-text-3 mt-5">{copy.hero.micro}</p>
-
-        <ul class="hero-seq hero-seq-5 mt-8 pt-7 border-t border-line flex flex-col gap-2.5">
-          {copy.social_proof.items.map((item) => (
-            <li class="flex items-start gap-2.5 text-[0.9375rem] text-text-2 leading-snug">
-              <svg class="check-ok mt-1" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.5 4.5 6.4 11.6 2.5 7.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <div class="lg:col-span-6 hero-seq hero-seq-5">
-        <div class="frame-light lg:scale-[1.12] lg:origin-left lg:translate-x-6">
-          <img
-            src="/shots/inventario.webp"
-            alt="Inventario de GoBecker: equipos con IMEI, batería y precio en dólares, valorizados al blue"
-            width="1920"
-            height="1080"
-            fetchpriority="high"
-          />
-        </div>
-      </div>
+    <div class="hero-seq hero-seq-4 flex flex-col sm:flex-row items-center justify-center gap-3.5 mt-8">
+      <a href={REGISTER_URL} class="btn btn-primary w-full sm:w-auto !text-[1.0625rem] !px-7 !py-4">{copy.hero.cta_primary}</a>
+      <a href={WA_URL} target="_blank" rel="noopener" class="btn btn-outline w-full sm:w-auto !text-[1.0625rem] !px-7 !py-4">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.44 15.1L2 22l5.05-1.55A9.9 9.9 0 1 0 12.04 2Zm5.8 14.06c-.24.68-1.4 1.3-1.93 1.35-.52.05-1.01.24-3.4-.7-2.87-1.14-4.68-4.06-4.82-4.25-.14-.19-1.15-1.53-1.15-2.92s.73-2.07.99-2.35c.26-.28.56-.35.75-.35h.54c.17 0 .4-.06.63.48.24.56.8 1.95.87 2.09.07.14.12.31.02.5-.09.19-.14.3-.28.47l-.42.5c-.14.14-.29.3-.12.58.16.28.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.28.14.45.12.61-.07.17-.19.7-.82.89-1.1.19-.28.38-.23.63-.14.26.1 1.64.78 1.92.92.28.14.47.21.54.32.07.12.07.68-.17 1.32Z"/></svg>
+        {copy.hero.cta_secondary}
+      </a>
     </div>
+
+    <p class="hero-seq hero-seq-4 num text-[0.8125rem] text-text-3 mt-5">{copy.hero.micro}</p>
+
+    <figure class="hero-seq hero-seq-5 mt-12">
+      <div class="video-slot frame-light max-w-5xl mx-auto" data-video-src="/videos/recorrida.mp4" role="button" tabindex="0" aria-label="Reproducir video: GoBecker funcionando">
+        <img
+          src="/shots/reparaciones.webp"
+          alt="GoBecker funcionando: board de reparaciones por estado de una casa de tecnología"
+          width="1920"
+          height="1080"
+          fetchpriority="high"
+        />
+        <div class="play-badge">
+          <div class="play-circle">
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5.5v13l11-6.5-11-6.5Z"/></svg>
+          </div>
+        </div>
+      </div>
+      <figcaption class="text-text-3 text-sm mt-3">GoBecker de verdad, con datos de una tienda demo. Tocá play.</figcaption>
+    </figure>
+
+    <ul class="hero-seq hero-seq-5 max-w-4xl mx-auto mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-3 text-left">
+      {copy.social_proof.items.map((item) => (
+        <li class="flex items-start gap-2.5 text-[0.9375rem] text-text-2 leading-snug">
+          <svg class="check-ok mt-1" width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M13.5 4.5 6.4 11.6 2.5 7.7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          {item}
+        </li>
+      ))}
+    </ul>
   </div>
 </section>

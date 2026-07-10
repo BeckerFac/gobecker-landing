@@ -76,6 +76,10 @@ h1.display { font-weight: 600; letter-spacing: -0.02em; line-height: 1.02; }
   white-space: nowrap;
 }
 .btn:active { transform: translateY(1px); }
+.btn:focus-visible, a:focus-visible, summary:focus-visible, button:focus-visible {
+  outline: 3px solid var(--color-green);
+  outline-offset: 2px;
+}
 .btn-primary { background: var(--color-green); color: #fff; }
 .btn-primary:hover { background: var(--color-green-deep); }
 .btn-outline { border: 1.5px solid var(--color-line); color: var(--color-text); background: var(--color-card); }
@@ -106,6 +110,14 @@ h1.display { font-weight: 600; letter-spacing: -0.02em; line-height: 1.02; }
 }
 .bento-cell .frame-inner { margin-top: auto; }
 .bento-cell ul { margin-bottom: 1.25rem; }
+.bento-cell {
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+}
+.bento-cell:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 44px -22px rgba(27, 34, 40, 0.28);
+}
+.hl { color: var(--color-green); }
 .bento-cell::before {
   content: "";
   position: absolute;

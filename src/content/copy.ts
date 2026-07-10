@@ -77,7 +77,7 @@ export const copy = {
       kicker: 'Stock',
       title: 'Tu stock, valorizado al blue',
       body:
-        'Cada equipo entra con su IMEI o serie. El sistema valoriza todo con la cotización blue en vivo, en dólares y en pesos. Abrís el stock y ves cuánta plata hay ahí adentro, hoy.',
+        'Cada equipo entra con su IMEI o serie y se valoriza al blue en vivo, en dólares y pesos. Abrís el stock y ves cuánta plata hay adentro, hoy.',
       bullets: ['Cotización blue en vivo', 'IMEI o serie por equipo'],
       accent: 'var(--color-green)',
       shot: '/shots/inventario.webp',
@@ -88,7 +88,7 @@ export const copy = {
       kicker: 'Taller',
       title: 'El taller sin papelitos',
       body:
-        'Un board con cada reparación por estado: de recibido a entregado. Cada equipo con su orden de trabajo y certificado de garantía en PDF. El cliente pregunta, vos mirás la pantalla.',
+        'Cada reparación avanza por estados, de recibido a entregado, con su orden de trabajo y garantía en PDF. El cliente pregunta, vos mirás la pantalla.',
       bullets: ['OT por cada equipo', 'Certificado de garantía en PDF'],
       accent: 'var(--color-acc-orange)',
       shot: '/shots/reparaciones.webp',
@@ -99,7 +99,7 @@ export const copy = {
       kicker: 'Mostrador',
       title: 'Cargás el IMEI y cobrás',
       body:
-        'Buscás el equipo por IMEI, cerrás la venta y sale el comprobante, remito o garantía con el logo de tu negocio. El stock se descuenta solo. Nada de armar recibos en Word.',
+        'Buscás por IMEI, cobrás y sale el comprobante con el logo de tu negocio. El stock se descuenta solo.',
       bullets: ['Venta rápida por IMEI', 'Comprobantes con tu logo'],
       accent: 'var(--color-acc-blue)',
       shot: '/shots/venta-modal.webp',
@@ -110,7 +110,7 @@ export const copy = {
       kicker: 'Plan canje',
       title: 'El usado entra como pago',
       body:
-        'Te traen un usado, lo aceptás y entra derecho al stock con su IMEI, listo para revender. Queda anotado quién lo trajo, a cuánto lo tomaste y qué se llevó a cambio.',
+        'El usado entra derecho al stock con su IMEI, listo para revender. Queda anotado quién lo trajo y a cuánto lo tomaste.',
       bullets: ['Entra al stock con IMEI', 'Historial de cada canje'],
       accent: 'var(--color-acc-purple)',
       span: 'sm',
@@ -120,7 +120,7 @@ export const copy = {
       kicker: 'Números',
       title: 'Ganancia real, no la del cuaderno',
       body:
-        'Un tablero con ingresos, costos, ganancia bruta y neta, y cuánto reinvertiste en el período. Más cuentas corrientes por cliente y comisiones de vendedores y técnicos, calculadas solas.',
+        'Ingresos, costos, ganancia bruta y neta, y cuánto reinvertiste. Cuentas corrientes y comisiones de vendedores y técnicos, calculadas solas.',
       bullets: ['Ganancia bruta y neta', 'Comisiones por vendedor y técnico'],
       accent: 'var(--color-acc-pink)',
       shot: '/shots/analytics.webp',
@@ -134,24 +134,24 @@ export const copy = {
       {
         title: 'Revendedor de iPhone',
         body:
-          'Comprás y vendés en dólares, cobrás en pesos y el blue se mueve todos los días. GoBecker te mantiene el stock valorizado y cada equipo atado a su IMEI.',
+          'Comprás en dólares, cobrás en pesos y el blue no para: tu stock queda valorizado en vivo, cada equipo con su IMEI.',
       },
       {
         title: 'Tienda multi-marca',
         body:
-          'Celulares, notebooks, accesorios: cientos de productos y precios que cambian seguido. Todo tu stock en un solo lugar, con venta rápida por mostrador y cuentas corrientes por cliente.',
+          'Celulares, notebooks y accesorios en un solo stock, con venta rápida por mostrador y cuentas corrientes por cliente.',
       },
       {
         title: 'Servicio técnico',
         body:
-          'Equipos que entran, se reparan y salen. Cada uno con su orden de trabajo, su estado en el board y su certificado de garantía en PDF para el cliente.',
+          'Cada equipo que entra tiene su orden de trabajo, su estado en el board y su garantía en PDF para el cliente.',
       },
     ],
   },
   pricing: {
     kicker: 'Precio a la vista',
     title: 'Un plan. Un precio. Todo adentro.',
-    sub: 'La mayoría de los gestores te hace pedir una demo para saber cuánto salen. Acá lo ves de entrada: un solo plan, con todo incluido y sin sorpresas después.',
+    sub: 'Otros gestores te hacen pedir una demo para saber cuánto salen. Acá lo ves de entrada, sin sorpresas.',
     plan_name: 'Plan único',
     price_line: 'US$ 70',
     includes: [
@@ -171,7 +171,7 @@ export const copy = {
   faq: [
     {
       q: '¿Es difícil de aprender?',
-      a: 'No. Si manejás WhatsApp, manejás GoBecker. Cargás un equipo, lo vendés y sale el comprobante. Eso es todo. Y si te trabás, nos escribís por WhatsApp y te contesta una persona, no un bot.',
+      a: 'No. Si manejás WhatsApp, manejás GoBecker. Cargás un equipo, lo vendés y sale el comprobante. Eso es todo. Anda en el navegador de la compu, la tablet o el celular, sin instalar nada. Y si te trabás, te contesta una persona por WhatsApp, no un bot.',
     },
     {
       q: '¿Mis datos están seguros?',
@@ -186,10 +186,6 @@ export const copy = {
       a: 'Sale US$ 70 por mes, plan único, todo incluido. Sin extras ni planes escondidos. Está en dólares por lo mismo que tu stock: los equipos se cotizan en dólares, así el precio no salta con cada corrida del peso.',
     },
     {
-      q: '¿Lo puedo manejar desde el celular?',
-      a: 'Sí. Anda en el navegador: celular, tablet o compu. No instalás nada. Atendés en el mostrador con la compu y mirás el stock o el board de reparaciones desde donde estés.',
-    },
-    {
       q: '¿Qué pasa cuando se terminan los 15 días?',
       a: 'Nada raro. Como no dejaste tarjeta, no hay cobro sorpresa. Si te sirvió, pagás US$ 70 por mes y seguís con todo lo que cargaste. Si no, no pagás nada y listo.',
     },
@@ -200,7 +196,7 @@ export const copy = {
   ] as FaqItem[],
   cta_final: {
     title: '¿Cuánta plata hay en tu local hoy?',
-    sub: 'Creá tu cuenta gratis, cargá tus equipos esta tarde y a la noche ya tenés el número. 15 días, sin tarjeta, sin permanencia.',
+    sub: 'Cargá tus equipos esta tarde y a la noche ya tenés el número. 15 días gratis, sin tarjeta.',
     cta: 'Probar GoBecker gratis',
   },
 };
