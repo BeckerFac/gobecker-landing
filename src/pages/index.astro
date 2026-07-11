@@ -10,6 +10,8 @@ import Faq from '../components/sections/Faq.astro';
 import CtaFinal from '../components/sections/CtaFinal.astro';
 import Footer from '../components/sections/Footer.astro';
 import StickyCta from '../components/sections/StickyCta.astro';
+import MetaPixel from '../components/MetaPixel.astro';
+import MetaEvents from '../components/MetaEvents.astro';
 
 const SITE = 'https://gobecker.com.ar';
 ---
@@ -19,6 +21,7 @@ const SITE = 'https://gobecker.com.ar';
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <MetaPixel />
     <title>{copy.meta_seo.title}</title>
     <meta name="description" content={copy.meta_seo.description} />
     <link rel="canonical" href={SITE} />
@@ -70,6 +73,7 @@ const SITE = 'https://gobecker.com.ar';
     </main>
     <Footer />
     <StickyCta />
+    <MetaEvents />
 
     <script>
       // Entrada orquestada del hero

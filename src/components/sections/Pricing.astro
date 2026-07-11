@@ -28,13 +28,13 @@ import { copy, REGISTER_URL, WA_URL } from '../../content/copy';
         ))}
       </ul>
 
-      <a href={REGISTER_URL} class="btn btn-primary w-full mt-9 !py-4 !text-[1.0625rem]">{copy.pricing.cta}</a>
+      <a href={REGISTER_URL} data-meta="lead" data-meta-name="Pricing - Empezar gratis" class="btn btn-primary w-full mt-9 !py-4 !text-[1.0625rem]">{copy.pricing.cta}</a>
       <p class="num text-[0.8125rem] text-inv-2 text-center mt-4">{copy.pricing.micro}</p>
     </div>
 
     <p class="reveal text-center text-text-2 mt-8">
       ¿Querés que te lo cuente una persona?
-      <a href={WA_URL} target="_blank" rel="noopener" class="text-green font-semibold hover:underline">Escribinos por WhatsApp</a>
+      <a href={WA_URL} target="_blank" rel="noopener" data-meta="contact" data-meta-name="Pricing - WhatsApp" class="text-green font-semibold hover:underline">Escribinos por WhatsApp</a>
     </p>
   </div>
 </section>

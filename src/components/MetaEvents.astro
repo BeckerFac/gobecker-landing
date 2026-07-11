@@ -1,0 +1,84 @@
+---
+// Meta Pixel events + UTM propagation.
+// - UTM propagation runs ALWAYS (independent of the pixel): it appends the current
+//   page query params (utm_* + fbclid) to every CTA that points to app.gobecker.com.ar
+//   so the attribution "huella" travels from the landing to the register/app flow.
+//   (The _fbp/_fbc cookies already travel on their own — same root domain — not touched.)
+// - Contact / Lead / ViewContent only fire when window.fbq exists (pixel enabled).
+//   With PUBLIC_META_PIXEL_ID unset, fbq is undefined => these are clean no-ops.
+// The CTAs are tagged with data-meta="contact|lead" + data-meta-name in the sections.
+---
+<script is:inline>
+  (function () {
+    // ---- 1. UTM / fbclid propagation to app.gobecker.com.ar CTAs (runs always) ----
+    var KEYS = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 'fbclid'];
+    try {
+      var current = new URLSearchParams(window.location.search);
+      var pass = new URLSearchParams();
+      for (var i = 0; i < KEYS.length; i++) {
+        var v = current.get(KEYS[i]);
+        if (v) pass.set(KEYS[i], v);
+      }
+      var hasParams = false;
+      pass.forEach(function () { hasParams = true; });
+      if (hasParams) {
+        var links = document.querySelectorAll('a[href]');
+        links.forEach(function (a) {
+          var url;
+          try { url = new URL(a.href, window.location.origin); } catch (e) { return; }
+          if (url.hostname !== 'app.gobecker.com.ar') return;
+          pass.forEach(function (val, key) {
+            if (!url.searchParams.has(key)) url.searchParams.set(key, val);
+          });
+          a.href = url.toString();
+        });
+      }
+    } catch (e) { /* propagation must never break the page */ }
+
+    // ---- 2. Standard events (guarded: no-op when pixel disabled) ----
+    var uuid = function () {
+      try {
+        if (window.crypto && crypto.randomUUID) return crypto.randomUUID();
+      } catch (e) {}
+      return Date.now() + '-' + Math.random().toString(16).slice(2);
+    };
+
+    // Contact — every WhatsApp CTA (onclick, before navigation).
+    document.querySelectorAll('[data-meta="contact"]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (window.fbq) fbq('track', 'Contact', { content_name: a.dataset.metaName || 'WhatsApp' });
+      });
+    });
+
+    // Lead — every "prueba gratis" / registro CTA, with eventID for future CAPI dedup.
+    document.querySelectorAll('[data-meta="lead"]').forEach(function (a) {
+      a.addEventListener('click', function () {
+        if (window.fbq) fbq('track', 'Lead', { content_name: a.dataset.metaName || 'Registro' }, { eventID: uuid() });
+      });
+    });
+
+    // ViewContent — when the pricing section enters the viewport (once).
+    // threshold:0 + negative bottom rootMargin fires when the section's top crosses into
+    // the upper ~80% of the viewport -> robust even when the section is taller than the
+    // viewport (a fixed threshold like 0.4 would never be reached on a tall section).
+    var pricing = document.getElementById('precio');
+    if (pricing && 'IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        for (var j = 0; j < entries.length; j++) {
+          if (entries[j].isIntersecting) {
+            if (window.fbq) fbq('track', 'ViewContent', { content_name: 'Pricing', content_category: 'pricing' });
+            io.disconnect();
+            break;
+          }
+        }
+      }, { threshold: 0, rootMargin: '0px 0px -20% 0px' });
+      io.observe(pricing);
+    }
+
+    // ---- 3. SPA re-fire (future-proof; no-op today: SSG, no View Transitions) ----
+    // Fires only on client-side navigations (never initial load) if ClientRouter is added later.
+    document.addEventListener('astro:after-swap', function () {
+      if (window.fbq) fbq('track', 'PageView');
+    });
+  })();
+</script>

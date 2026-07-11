@@ -1,0 +1,26 @@
+---
+// Meta Pixel base — gated by the PUBLIC_META_PIXEL_ID env var.
+// If the var is missing (M1 has not created the pixel yet) NOTHING is injected:
+// clean no-op, the rendered HTML contains no fbevents / connect.facebook.net.
+// Set PUBLIC_META_PIXEL_ID (Render static site env var) to activate. See README.
+const pixelId = import.meta.env.PUBLIC_META_PIXEL_ID;
+
+const snippet = pixelId
+  ? `!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${pixelId}');fbq('track','PageView');`
+  : '';
+const noscriptSrc = pixelId
+  ? `https://www.facebook.com/tr?id=${pixelId}&ev=PageView&noscript=1`
+  : '';
+---
+{pixelId ? (
+  <Fragment>
+    <!-- Meta Pixel Code -->
+    <script is:inline set:html={snippet}></script>
+    <noscript>
+      <img height="1" width="1" style="display:none" alt="" src={noscriptSrc} />
+    </noscript>
+    <!-- End Meta Pixel Code -->
+  </Fragment>
+) : (
+  <Fragment set:html="<!-- Meta Pixel: PUBLIC_META_PIXEL_ID not set (no-op) -->" />
+)}
