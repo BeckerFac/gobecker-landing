@@ -28,22 +28,22 @@ export const copy = {
   meta_seo: {
     title: 'GoBecker | Gestor para casas de tecnología en Argentina',
     description:
-      'Stock con IMEI valorizado al blue en USD y ARS, POS, reparaciones y plan canje. 15 días gratis sin tarjeta. US$ 70/mes, plan único todo incluido.',
+      'Stock con IMEI valorizado al blue en USD y ARS, POS, reparaciones y plan canje. 7 días gratis sin tarjeta. US$ 70/mes, plan único todo incluido.',
   },
   hero: {
     badge: 'Cotización blue en vivo',
     headline: 'Toda la plata del local, en un número.',
     subheadline:
       'Abrís GoBecker y ves cuánto vale tu stock hoy, en dólares y en pesos al blue. Equipo por equipo, cada uno con su IMEI.',
-    cta_primary: 'Probalo 15 días gratis',
+    cta_primary: 'Probalo 7 días gratis',
     cta_secondary: 'Escribinos por WhatsApp',
-    micro: '15 días gratis · Sin tarjeta · Después US$ 70/mes',
+    micro: '7 días gratis · Sin tarjeta · Después US$ 70/mes',
   },
   social_proof: {
     title: 'Lo que podés verificar antes de pagar',
     items: [
       'Precio publicado: US$ 70 por mes, plan único',
-      '15 días de prueba sin pedir tarjeta',
+      '7 días de prueba sin pedir tarjeta',
       'Sin permanencia: te vas cuando quieras',
       'Soporte por WhatsApp, atiende una persona',
     ],
@@ -164,7 +164,7 @@ export const copy = {
       'Cuentas corrientes y comisiones',
       'Facturación AFIP/ARCA opcional',
     ],
-    trial_line: 'Probalo 15 días gratis. Sin tarjeta, sin permanencia.',
+    trial_line: 'Probalo 7 días gratis. Sin tarjeta, sin permanencia.',
     cta: 'Empezar gratis',
     micro: 'Cancelás cuando quieras. Soporte humano por WhatsApp.',
   },
@@ -186,7 +186,7 @@ export const copy = {
       a: 'Sale US$ 70 por mes, plan único, todo incluido. Sin extras ni planes escondidos. Está en dólares por lo mismo que tu stock: los equipos se cotizan en dólares, así el precio no salta con cada corrida del peso.',
     },
     {
-      q: '¿Qué pasa cuando se terminan los 15 días?',
+      q: '¿Qué pasa cuando se terminan los 7 días?',
       a: 'Nada raro. Como no dejaste tarjeta, no hay cobro sorpresa. Si te sirvió, pagás US$ 70 por mes y seguís con todo lo que cargaste. Si no, no pagás nada y listo.',
     },
     {
@@ -196,7 +196,7 @@ export const copy = {
   ] as FaqItem[],
   cta_final: {
     title: '¿Cuánta plata hay en tu local hoy?',
-    sub: 'Cargá tus equipos esta tarde y a la noche ya tenés el número. 15 días gratis, sin tarjeta.',
+    sub: 'Cargá tus equipos esta tarde y a la noche ya tenés el número. 7 días gratis, sin tarjeta.',
     cta: 'Probar GoBecker gratis',
   },
 };
