@@ -41,6 +41,110 @@ body {
 }
 ::selection { background: var(--color-green); color: #fff; }
 
+/* ===== AURORA (fondo premium, solo transform/opacity) =====
+   Capa de resplandores verdes con blur que derivan lento. Va detras del
+   contenido de la seccion (esta debe ser position:relative + overflow:hidden).
+   Variante -dark para secciones carbon, -light apenas insinuada en claras. */
+.aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.aurora > * { position: relative; z-index: 1; }
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.5;
+  will-change: transform, opacity;
+  transform: translate3d(0, 0, 0);
+}
+/* Secciones carbon (hero / pricing / cta) */
+.aurora-dark .aurora-blob-1 {
+  width: 46vw; height: 46vw; max-width: 640px; max-height: 640px;
+  top: -14%; left: 8%;
+  background: radial-gradient(circle, rgba(47, 182, 115, 0.55), transparent 66%);
+  animation: aurora-drift-1 26s ease-in-out infinite;
+}
+.aurora-dark .aurora-blob-2 {
+  width: 40vw; height: 40vw; max-width: 560px; max-height: 560px;
+  top: 4%; right: 2%;
+  background: radial-gradient(circle, rgba(12, 138, 77, 0.5), transparent 68%);
+  animation: aurora-drift-2 32s ease-in-out infinite;
+}
+.aurora-dark .aurora-blob-3 {
+  width: 52vw; height: 52vw; max-width: 720px; max-height: 720px;
+  bottom: -30%; left: 30%;
+  background: radial-gradient(circle, rgba(62, 207, 142, 0.35), transparent 70%);
+  animation: aurora-drift-3 38s ease-in-out infinite;
+}
+/* Grano finisimo sobre el carbon para que el degrade no "bandee" */
+.aurora-dark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+  opacity: 0.6;
+}
+/* Secciones claras: apenas un aliento verde en las esquinas */
+.aurora-light .aurora-blob-1 {
+  width: 44vw; height: 44vw; max-width: 560px; max-height: 560px;
+  top: -22%; right: -8%;
+  background: radial-gradient(circle, rgba(12, 138, 77, 0.1), transparent 68%);
+  opacity: 0.7;
+  animation: aurora-drift-2 34s ease-in-out infinite;
+}
+.aurora-light .aurora-blob-2 {
+  width: 40vw; height: 40vw; max-width: 520px; max-height: 520px;
+  bottom: -26%; left: -10%;
+  background: radial-gradient(circle, rgba(47, 182, 115, 0.09), transparent 70%);
+  opacity: 0.7;
+  animation: aurora-drift-1 30s ease-in-out infinite;
+}
+
+/* Hero claro: amanecer verde perceptible en la mitad superior, centro limpio
+   para no comer contraste del texto oscuro. */
+.aurora-hero .aurora-blob-1 {
+  width: 50vw; height: 44vw; max-width: 700px; max-height: 580px;
+  top: -18%; left: -4%;
+  background: radial-gradient(circle, rgba(47, 182, 115, 0.38), transparent 62%);
+  opacity: 0.95; filter: blur(64px);
+  animation: aurora-drift-1 28s ease-in-out infinite;
+}
+.aurora-hero .aurora-blob-2 {
+  width: 46vw; height: 42vw; max-width: 660px; max-height: 560px;
+  top: -22%; right: -6%;
+  background: radial-gradient(circle, rgba(12, 138, 77, 0.32), transparent 64%);
+  opacity: 0.95; filter: blur(64px);
+  animation: aurora-drift-2 34s ease-in-out infinite;
+}
+.aurora-hero .aurora-blob-3 {
+  width: 64vw; height: 34vw; max-width: 940px; max-height: 460px;
+  top: 20%; left: 18%;
+  background: radial-gradient(ellipse, rgba(62, 207, 142, 0.18), transparent 70%);
+  opacity: 0.85;
+  animation: aurora-drift-3 40s ease-in-out infinite;
+}
+
+@keyframes aurora-drift-1 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.5; }
+  50%      { transform: translate3d(6%, 8%, 0) scale(1.12); opacity: 0.62; }
+}
+@keyframes aurora-drift-2 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1.05); opacity: 0.45; }
+  50%      { transform: translate3d(-7%, 5%, 0) scale(0.95); opacity: 0.58; }
+}
+@keyframes aurora-drift-3 {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); opacity: 0.32; }
+  50%      { transform: translate3d(4%, -6%, 0) scale(1.15); opacity: 0.44; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob { animation: none !important; }
+}
+
 /* ===== TYPE ===== */
 .display {
   font-family: var(--font-display);

@@ -2,11 +2,13 @@
 import { copy, REGISTER_URL, WA_URL } from '../../content/copy';
 ---
 
-<section
-  class="bg-coal section-pad"
-  style="background-image: radial-gradient(ellipse 55% 60% at 50% 115%, rgba(12, 138, 77, 0.22), transparent 70%);"
->
-  <div class="max-w-3xl mx-auto text-center">
+<section class="bg-coal section-pad relative overflow-hidden">
+  <div class="aurora aurora-dark" aria-hidden="true">
+    <div class="aurora-blob aurora-blob-1"></div>
+    <div class="aurora-blob aurora-blob-2"></div>
+    <div class="aurora-blob aurora-blob-3"></div>
+  </div>
+  <div class="max-w-3xl mx-auto text-center relative" style="z-index: 1;">
     <h2 class="reveal display text-inv text-4xl sm:text-5xl">{copy.cta_final.title}</h2>
     <p class="reveal text-inv-2 text-lg mt-5 max-w-xl mx-auto">{copy.cta_final.sub}</p>
     <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-3.5 mt-9">

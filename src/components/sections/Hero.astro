@@ -7,7 +7,12 @@ import { copy, REGISTER_URL, WA_URL } from '../../content/copy';
 ---
 
 <section class="bg-bg pt-32 pb-16 sm:pt-40 sm:pb-20 px-6 relative overflow-hidden">
-  <div class="max-w-6xl mx-auto text-center">
+  <div class="aurora aurora-hero" aria-hidden="true">
+    <div class="aurora-blob aurora-blob-1"></div>
+    <div class="aurora-blob aurora-blob-2"></div>
+    <div class="aurora-blob aurora-blob-3"></div>
+  </div>
+  <div class="max-w-6xl mx-auto text-center relative" style="z-index: 1;">
     <p class="hero-seq hero-seq-1 inline-flex items-center gap-2 border border-line bg-card rounded-full px-4 py-1.5 num text-[0.8125rem] text-text-2 mb-7">
       <span class="w-1.5 h-1.5 rounded-full bg-green inline-block"></span>
       {copy.hero.badge}
